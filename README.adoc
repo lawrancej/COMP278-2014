@@ -8,7 +8,7 @@
 . Why did you pick your major?
 . Tell us something nobody else knows about you.
 
-=== https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/COMP278SyllabusLawrance.docx[Syllabus (Word document)]
+=== https://github.com/lawrancej/COMP278-2014/blob/master/SyllabusCOMP278Lawrance.docx?raw=true[Syllabus (Word document)]
 
 * The textbook is recommended, but not required. https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md[Here's some free textbooks instead.]
 * As long as we're here, https://github.com/sindresorhus/awesome[check out some awesome stuff].
