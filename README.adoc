@@ -1,0 +1,37 @@
+= COMP278 (Computer Architecture)
+
+== September 8
+
+=== Introduction
+
+. What's your name?
+. Why did you pick computer science or networking?
+. Tell us something nobody else knows about you.
+
+=== https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/COMP278SyllabusLawrance.docx[Syllabus (Word document)]
+
+=== Install Git and frontends
+[[install-git]]
+Windows:: https://code.google.com/p/gitextensions/downloads/list[Install Git Extensions, MSysGit and KDiff3].
++
+NOTE: Stick to the default settings, but when asked, *choose OpenSSH (not PuTTY)*.
+
+Mac OS X:: http://rowanj.github.io/gitx/[Install GitX-dev].
++
+NOTE: https://developer.apple.com/xcode/downloads/[XCode developer tools] ships with git; otherwise, http://git-scm.com/download/mac[install the latest git from here].
+
+Linux:: http://git-scm.com/download/linux[Install git] using your package manager. http://sourceforge.net/projects/qgit/[QGit, a git frontend] may also be available for your distribution.
++
+NOTE: Don't forget to use +sudo+ with your package manager.
+
+=== Setup your course repository
+[[setup-repo]]
+IMPORTANT: You must use LeopardSecure, not LeopardGuest.
+
+All platforms:: Paste this into your terminal (Git Bash on Windows):
++
+----
+curl https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/starterupper.sh | sh
+----
++
+NOTE: Press +Insert+ to paste in Git Bash.
