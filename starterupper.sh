@@ -1,4 +1,9 @@
 #!/bin/bash
+# Figure out if it's going to education.github.com
+# SSH CONFIG PROBLEM
+# REPOS NOT SHOWING UP
+# SETUP LOCAL FIRST
+
 
 # Starter Upper: Setup git hosting for classroom use with minimal user interaction.
 

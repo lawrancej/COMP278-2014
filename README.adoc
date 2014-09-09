@@ -41,6 +41,7 @@ Create a new text file in your COMP278-2014 folder called practice.txt. In that 
 Next, stage, commit and push our stuff off to ensure git is working. You can also use Git Extensions to do this.
 
 ----
+cd COMP278-2014                 # Go into your folder
 git add practice.txt            # Stage practice.txt (include in next commit)
 git commit -m "Git practice"    # Commit changes with a message
 git push origin master          # Send work to your private repository
