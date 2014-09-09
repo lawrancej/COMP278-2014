@@ -1,17 +1,6 @@
 = COMP278 (Computer Architecture)
 
-== September 8
-
-=== Introduction
-
-. What's your name?
-. Why did you pick your major?
-. Tell us something nobody else knows about you.
-
-=== https://github.com/lawrancej/COMP278-2014/blob/master/SyllabusCOMP278Lawrance.docx?raw=true[Syllabus (Word document)]
-
-* The textbook is recommended, but not required. https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md[Here's some free textbooks instead.]
-* As long as we're here, https://github.com/sindresorhus/awesome[check out some awesome stuff].
+== Day 2
 
 === Install Git and frontends
 [[install-git]]
@@ -34,7 +23,38 @@ IMPORTANT: You must use LeopardSecure, not LeopardGuest.
 All platforms:: Paste this into your terminal (Git Bash on Windows):
 +
 ----
-curl https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/starterupper.sh | sh
+curl https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/starterupper.sh | bash
 ----
 +
 NOTE: Press +Insert+ to paste in Git Bash.
+
+=== Pretest
+
+https://docs.google.com/forms/d/1VkxOzu9nwzDt4SuFOXCnEMKvP5tulhHJSkN4_cyraCM/viewform[What do you already know about computer architecture? Answer individually]
+
+=== Git practice
+
+IMPORTANT: If you use Windows, first download and install http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor] (Notepad, Word and WordPad do not count). 
+
+Create a new text file in your COMP278-2014 folder called practice.txt. In that file, write a sentence or two about what (if anything) you'd like to learn in this class. Save your work.
+
+Next, stage, commit and push our stuff off to ensure git is working. You can also use Git Extensions to do this.
+
+----
+git add practice.txt            # Stage practice.txt (include in next commit)
+git commit -m "Git practice"    # Commit changes with a message
+git push origin master          # Send work to your private repository
+----
+
+== Day 1
+
+=== Introduction
+
+. What's your name?
+. Why did you pick your major?
+. Tell us something nobody else knows about you.
+
+=== https://github.com/lawrancej/COMP278-2014/blob/master/SyllabusCOMP278Lawrance.docx?raw=true[Syllabus (Word document)]
+
+* The textbook is recommended, but not required. https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md[Here's some free textbooks instead.]
+* As long as we're here, https://github.com/sindresorhus/awesome[check out some awesome stuff].
