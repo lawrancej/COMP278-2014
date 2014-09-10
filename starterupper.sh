@@ -4,6 +4,7 @@
 # REPOS NOT SHOWING UP
 # SETUP LOCAL FIRST
 # Make all functions idempotent
+# Resubmitting keys won't work (already exists) unprocessable entitites
 # start / open a bookmarklet?
 
 
