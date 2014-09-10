@@ -3,6 +3,8 @@
 # SSH CONFIG PROBLEM
 # REPOS NOT SHOWING UP
 # SETUP LOCAL FIRST
+# Make all functions idempotent
+# start / open a bookmarklet?
 
 
 # Starter Upper: Setup git hosting for classroom use with minimal user interaction.
