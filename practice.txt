@@ -1,1 +1,2 @@
 How to setup git without any issues at all.
+And here's through git gui.
