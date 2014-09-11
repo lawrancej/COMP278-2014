@@ -1,13 +1,4 @@
 #!/bin/bash
-# Figure out if it's going to education.github.com
-# SSH CONFIG PROBLEM
-# REPOS NOT SHOWING UP
-# SETUP LOCAL FIRST
-# Make all functions idempotent
-# Resubmitting keys won't work (already exists) unprocessable entitites
-# start / open a bookmarklet?
-
-
 # Starter Upper: Setup git hosting for classroom use with minimal user interaction.
 
 # Configuration
@@ -24,7 +15,14 @@ readonly INSTRUCTOR_GITHUB=lawrancej
 # The repository to clone as upstream (NO SPACES)
 readonly REPO=COMP278-2014
 
-# More issues:
+# Issues:
+# Figure out if it's going to education.github.com
+# SSH CONFIG PROBLEM : check if you overwrite .ssh/config
+# REPOS NOT SHOWING UP: need to go to education.github.com and figure out how to verify it
+# SETUP LOCAL FIRST
+# Make all functions idempotent
+# Resubmitting keys won't work (already exists) unprocessable entitites
+# start / open a bookmarklet?
 # go through all pages when fetching usernames
 # grading interface: checkout stuff rapid fire like, possibly use git notes
 # fall back to https remotes if the school doesn't support SSH
@@ -50,6 +48,7 @@ github_login=''
 # Utilities
 # ---------------------------------------------------------------------
 
+# Return whether the string is empty
 is_empty() {
     local var=$1
     [[ -z $var ]]
@@ -84,10 +83,10 @@ EOF
             FULLNAME=$(powershell -executionpolicy remotesigned -File getfullname.ps1 | sed -e 's/\(.*\), \(.*\)/\2 \1/')
             rm getfullname.ps1 > /dev/null
             ;;
-        linux* ) # untested
+        linux* )
             FULLNAME=$(getent passwd "$USERNAME" | cut -d ':' -f 5 | cut -d ',' -f 1)
             ;;
-        darwin* ) # untested
+        darwin* )
             FULLNAME=$(dscl . read /Users/`whoami` RealName | grep -v RealName | cut -c 2-)
             ;;
         *) FULLNAME="" ;;
@@ -231,6 +230,12 @@ local_setup() {
 # Github functions
 # ---------------------------------------------------------------------
 
+github_request_discount() {
+    echo "Request an individual student discount from Github."
+    sleep 2
+    file_open "https://education.github.com/discount_requests/new"
+}
+
 # Asks user to login to github after joining
 # Sets $github_login
 github_configure() {
@@ -247,6 +252,7 @@ github_configure() {
             echo "Open your inbox and verify your email with Github."
             sleep 2
             next_step
+            github_request_discount
         fi
     fi
     if [[ -z $(git config --global github.token) ]]; then
@@ -356,12 +362,6 @@ github_configure_email() {
     while [[ -z $(curl -H "Authorization: token $(git config --global github.token)" https://api.github.com/user/emails 2> /dev/null | tr '\n}[]{' ' \n   ' | grep "verified...true") ]]; do
         read -p "ERROR: $email is not verified yet. Verify, then press enter to continue." < /dev/tty
     done
-}
-
-github_request_discount() {
-    echo "Request an individual student discount."
-    sleep 2
-    file_open "https://education.github.com/discount_requests/new"
 }
 
 github_create_private_repo() {
