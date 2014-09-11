@@ -16,6 +16,9 @@ readonly INSTRUCTOR_GITHUB=lawrancej
 readonly REPO=COMP278-2014
 
 # Issues:
+# Its like it knows their name, but doesn't really
+# sniffing for educational discount is still broken
+# unprocessable entities even without ssh keys being sent?!?
 # Figure out if it's going to education.github.com
 # SSH CONFIG PROBLEM : check if you overwrite .ssh/config
 # REPOS NOT SHOWING UP: need to go to education.github.com and figure out how to verify it
