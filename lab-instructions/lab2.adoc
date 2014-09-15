@@ -1,0 +1,34 @@
+= Lab 2: Number representation practice
+
+Practice number base conversions for integers and floats.
+
+In Git Bash, create a new file to store your solutions like so:
+
+----
+cd ~/COMP278-2014       # Go into your repository
+touch lab2solution.txt  # Make a new file called lab2solution.txt
+start .                 # Open up the folder.
+----
+
+Or just open up http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor] and create a new file with your solutions.
+
+Practice conversions. Using http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor]
+
+. Convert 1590 to binary.
+. Convert 0b101110110 to decimal.
+. Convert 0b1100 0000 0001 1010 0001 0101 1011 1010 1101 to hexadecimal.
+. Convert 0b100 001 101 101 to octal.
+. Convert 0o31337 to binary.
+. Convert 0xBADF00D to binary and then to octal.
+. Convert 0o6157 to binary and then to decimal.
+. Convert 497 to binary. Then, use two's complement to convert 497 to -497 in binary.
+. Convert 900.79 to binary up to the 1/16ths spot.
+. Count from 0 through 10 in ternary (base 3). Note: the algorithm for counting is similar regardless of the number base. Show the place values.
+
+Save your file as lab2solution.txt, then stage, commit and push:
+
+----
+git add lab2solution.txt
+git commit -m "Added lab 2 solution."
+git push origin master
+----

@@ -1,0 +1,288 @@
+= Lab 1: Number representation overview
+
+== Background
+
+Read chapter 3 of the http://www.cburch.com/socs/written/text/v1.pdf[Science of Computing].
+
+== Overview: All your number base are belong to us
+
+In this lab, we will learn how to count in and convert among Binary, Octal, Decimal and Hexadecimal number bases, and represent integers in binary.
+
+image:http://lawrancej.github.io/COMP278-2014/images/bases.svg[Number conversion overview]
+
+To help remember which base is which, it's helpful to know that each of these words has Latin roots in them that other words share.
+Binary has "bi" in it, meaning two, just like bicycle and bisexual.
+Octal has "oct" in it, meaning eight, just like octagon (stop sign) and October.
+If you forgot this piece of historical trivia, October used to be the eighth month before Julius and Augustus Caesar named months after themselves.
+Decimal has "deci" in it, meaning ten, like December and decimate.
+December used to be the tenth month just like October was the eighth month, and decimate meant kill one out of every ten soldiers as a punishment for the group (those Romans!).
+Hexadecimal has "hex" and "deci" in it, and "hex" means six, just like hexagon. Think 6 + 10 = 16.
+
+== Why learn other bases?
+
+Binary is useful because it works reliably everywhere.
+
+[format="csv", options="header"]
+|===
+Binary, Number,0,1
+Boolean,Value             , False          , True     
+English,Word              , No             , Yes
+Switch, Position          , Off            , On
+CPU,    Voltage           , Low            , High
+HD,     Magnetic Polarity , South          , North
+CD-ROM, Pit/land edge     , Non-edge       , Edge
+RAM,    Electric charge   , Negative       , Positive
+Finger, Position          , Closed         , Extended
+|===
+
+Linux/Unix uses octal to represent read/write/execute permissions for users, groups, and others.
+
+Hexadecimal is a compact number representation that is found in IPv6 addresses, SHA hashes, and so forth.
+
+== Number bases
+
+The base or radix of a number is the number of unique digits to represent the number.
+
+[format="csv", options="header"]
+|===
+Base , Name                 , Digits  , Example
+2    , **Bi**nary           , 0-1     , 1010
+8    , **Oct**al            , 0-7     , 12
+10   , **Deci**mal          , 0-9     , 10
+16   , **Hex**adecimal      , 0-9,A-F , A
+|===
+
+Each digit in a number has a place value. For example, the decimal number 278.1 has four place values and a decimal point (radix point).
+
+[format="csv", options="header"]
+|===
+Digit       , 2         , 7       , 8      , .           , 1
+Place value , hundreds  , tens    , ones   , radix point , tenths
+|===
+
+Notice how the place values in decimal are just powers of ten. So, 10 squared is 100, 10 cubed is 1000, etc. The value of 278.1 is 2 * 100 + 7 * 10 + 8 * 1 + 1 * 0.1.
+
+In all number bases, the place values are just powers of the base. For example, the binary number 1011.1 has the following bits (binary digits) and place values.
+
+[format="csv", options="header"]
+|===
+Bit          , 1   , 0   , 1   , 1   , .           , 1
+Place value  , 8   , 4   , 2   , 1   , radix point , 0.5
+|===
+
+Notice how the place values in binary are powers of two.  Binary number 1011.1 is 8 * 1 + 4 * 0 + 1 * 2 + 1 * 1 + 1 * 0.5, or more simply 8 + 2 + 1 + 0.5 = 11.5 in decimal. This is how we convert from binary to decimal.
+
+When we write a number we will assume it is decimal; to label numbers in other bases, prefix it to label the base.
+
+[format="csv", options="header"]
+|===
+Prefix , Base
+0b     , Binary
+0o     , Octal
+None   , Decimal
+0x     , Hexadecimal
+|===
+
+For example, the number 1011.1 means one thousand eleven and one tenth, but 0b1011.1 means 11.5 in decimal.
+
+When we read numbers in bases other than decimal, do not read decimal place values. For example, read 0b1101.1 as binary number one one zero one point one, not one thousand eleven and one tenth, because that's just wrong.
+
+Interestingly enough, 10 in any base means the base itself. Think about why. What's 0b10 in decimal? How'd you know that?
+
+== Counting
+
+Imagine an odometer in your mind as you think about counting in any number base. In any number representation, the digit on the right is the **least significant** and the digit on the left is the **most significant**. Also, remember that it is always possible to prefix any number with zeroes with no effect.
+
+[format="csv", options="header"]
+|===
+Binary , Hexadecimal , Octal , Decimal
+0000   ,   0         ,   0   ,    0
+0001   ,   1         ,   1   ,    1
+0010   ,   2         ,   2   ,    2
+0011   ,   3         ,   3   ,    3
+0100   ,   4         ,   4   ,    4
+0101   ,   5         ,   5   ,    5
+0110   ,   6         ,   6   ,    6
+0111   ,   7         ,   7   ,    7
+1000   ,   8         ,  10   ,    8
+1001   ,   9         ,  11   ,    9
+1010   ,   A         ,  12   ,   10
+1011   ,   B         ,  13   ,   11
+1100   ,   C         ,  14   ,   12
+1101   ,   D         ,  15   ,   13
+1110   ,   E         ,  16   ,   14
+1111   ,   F         ,  17   ,   15
+|===
+
+As you read from the top to the bottom, notice how in we cycle through all digits faster in the least significant digit than in the most significant digit. For example, as you read the column of numbers in the 1's place for binary numbers, it alternates between 0 and 1, the 2's place alternates between 00 and 11, and the 4's place alternates between 4 zeroes and 4 ones, and the eights place alternates between 8 zeroes and 8 ones. It's no different than how the ones and the tens places look when counting in decimal. In the table above, you should also notice the same pattern for octal numbers: in the 1's place, we cycle from 0-7; in the 8's place, we repeat 0 eight times before repeating 1 eight times, and so forth.
+
+To count in binary, write from top to bottom, not left to right, and cycle through each bit in the least significant place, and then cycle through 00, 11 in the two's place, and so forth.
+
+What will the next row in the table above look like?
+
+== Binary to decimal
+
+You have already seen an example of how to convert a binary number to decimal. Knowing your powers of two will make it easy to do this quickly in your head.
+
+[format="csv", options="header"]
+|===
+n     , 2^n               , n    , 2^n    , n    , 2^n
+    0 ,     1             ,    0 ,      1 ,   10 ,    1024
+   -1 ,    1/2 (0.5)      ,    1 ,      2 ,   11 ,    2048
+   -2 ,    1/4 (0.25)     ,    2 ,      4 ,   12 ,    4096
+   -3 ,    1/8 (0.125)    ,    3 ,      8 ,   13 ,    8192
+   -4 ,   1/16 (0.0625)   ,    4 ,     16 ,   14 ,   16384
+   -5 ,   1/32 (0.03125)  ,    5 ,     32 ,   15 ,   32768
+   -6 ,   1/64 (0.015625) ,    6 ,     64 ,   16 ,   65536
+   -7 ,   0.0078125       ,    7 ,    128 ,   17 ,  131072
+   -8 ,   0.00390625      ,    8 ,    256 ,   18 ,  262144
+   -9 ,   0.001953125     ,    9 ,    512 ,   19 ,  524288
+  -10 ,   0.0009765625    ,   10 ,   1024 ,   20 , 1048576
+|===
+
+Try this on your own. What is 0b1101101 in decimal? Write out the place values under (or over) each binary digit (bit), and add up the place values corresponding to the 1's.
+
+== Decimal to binary
+
+To convert a decimal number to binary, make change with powers of two. For example, to convert 278.1 to binary, find the highest power of two less than or equal to 278.1. As you can see, 256 is the highest power of two less than 278.1, so subtract away.
+
+----
+Worked example
+
+    278.1
+  - 256    (2^8)
+  --------
+     22.1
+   - 16    (2^4)
+   -------
+      6.1
+    - 4    (2^2)
+    ------
+      2.1
+    - 2    (2^1)
+    ------
+      0.1
+    - 0.0625 (2^-4)
+    --------
+      0.0375
+    - 0.03125 (2^-5)
+    ---------
+      0.00625
+      ... and so forth...
+----
+
+At this point, to write out the binary number, just place a 1 corresponding to each place value we subtracted away, and zero elsewhere.
+
+[format="csv", options="header"]
+|===
+Digit         , 1   , 0   , 0   , 0   , 1   , 0   , 1   , 1   , 0   , .           , 0   , 0    , 0     , 1      , 1
+Place value   , 256 , 128 , 64  , 32  , 16  , 8   , 4   , 2   , 1   , Radix point , 0.5 , 0.25 , 0.125 , 0.0625 , 0.03125
+|===
+
+You may think: "Hey, we're not done yet!" You're right, the binary number above is not exactly 278.1 in decimal, but it is worth noting that some fractional numbers cannot be represented exactly. For example, 1/3 in decimal is 0.3333.... We cannot represent that number in decimal, and decimal numbers such as 0.65 cannot be represented exactly in binary. This is why we care about precision when dealing with floating point numbers, and why you shouldn't use float or double for currency.
+
+Try one yourself. What is 127.75 in binary? Did you notice a pattern? What's 128 in binary?
+
+You can use your hands to represent numbers from zero (two fists) to 1023 (all fingers extended) if you extend your finger for one, and close for zero using the diagram below. 
+
+image:http://lawrancej.github.io/COMP278-2014/images/binary-hands.svg[Impress your friends with your counting ability]
+
+Try your hand (so to speak) with the following numbers:
+
+* 4. Hey!
+* 25.
+* 31. 
+* 48. All right. :-)
+* 1023. 
+
+== Binary to Octal
+
+To convert binary to octal (base 8) is much simpler because 8 is an even power of 2. Converting binary to octal involves grouping a binary number in to chunks of three bits from right to left, and converting each three-bit chunk into a number. For example, converting 0b1011101 to octal looks like this.
+
+[format="csv", options="header"]
+|===
+Binary  , 1   , 011 , 101
+Octal   , 1   ,  3  ,  5
+|===
+
+What is 0b11001011011111 in octal? Try it yourself. When you get the answer, you will be among an elite group.
+
+> Linux/Unix filesystems distinguish among user (u), group (g) and other (o) permissions, where each level has read/write/execute bits. To set permissions involves using octal. For example, to allow `something_random.exe` to be readable, writable and executable by a user, readbale and executable to the group, but unavailable for others, we could execute the following commands.
+
+----
+$ chmod 750 something_random.exe
+$ ls -la something_random.exe
+   rwxr-x--- something_random.exe
+$ = u  g  o Permissions
+----
+    
+== Binary to Hexadecimal
+
+To convert binary to hexadecimal is similar to converting binary to octal, except instead of grouping into chunks of 3 bits, we group into four bit chunks (known as nibbles). For example, 0b1011101 in octal becomes:
+
+[format="csv", options="header"]
+|===
+Binary  , 101  , 1101
+Octal   ,   5  ,  D
+|===
+
+Decode this binary number into hexadecimal. I've already grouped the binary number for you. It spells out something. What did dad do?
+
+----
+1101 1010 1101
+1011 1110 1101 1101 1110 1101
+1010
+1011 1010 1101
+1011 1010 1101
+1011 1010 1011 1110
+----
+
+Decode this binary numbewr into hex. This also spells out something. What happened to Ed?
+
+----
+1110 1101
+1111 1010 1100 1110 1101
+1011 1010 1101
+1101 1110 1100 1010 1111
+1100 0000 1111 1111 1110 1110
+----
+
+== Binary integers and two's complement
+
+To represent signed integers purely in binary, we will use what's known as two's complement. Two's complement negates the most significant place value to represent signed numbers. Two's complement is [not the only way to represent integers](http://en.wikipedia.org/wiki/Signed_number_representations), but practically all computers use it because of its numerous advantages over other integer representations. For example, the obvious way of using a bit to to represent whether the number is positive or negative erroneously implies that there's a difference between positive and negative zero; two's complement does not suffer from this problem.
+
+To represent an integer in two's complement, we fix the width of the number (typically 32 or 64 bits on modern CPUs), and negate the most significant place value. For example, if we're dealing with 8 bit signed integers we'd have the following place values.
+
+[format="csv", options="header"]
+|===
+Bit    , 0    , 0   , 0   , 1   , 1   , 0   , 1   , 0 
+Place  , -128 , 64  , 32  , 16  , 8   , 4   , 2   , 1
+|===
+
+The number above, 0b11010 is 26 in decimal. It's easy enough to negate this number in decimal, just add a negative sign to the front (-26). 
+
+To negate a number represented in two's complement, we work from right to left and copy all zeroes until we see a 1; then, we copy the first 1, and flip the remaining bits to the left of the 1 we encountered. Let's see how to represent -0b11010 using two's complement:
+
+[format="csv", options="header"]
+|===
+Bit    , 1    , 1   , 1   , 0   , 0   , 1   , 1   , 0 
+Place  , -128 , 64  , 32  , 16  , 8   , 4   , 2   , 1
+|===
+
+Let's convert this number to decimal to verify that we get -26 in decimal. We need to keep in mind that the most significant bit has its sign flipped (-128). To keep things simple, let's add the positive place values before we subtract away 128.
+
+----
+Worked example
+
+    64
+    32
+     4
+ +   2
+ -----
+   102
+ - 128
+ -----
+   -26
+----
+
+Try one on your own. What is -0b101010 in two's complement? Assume we have 8 bits. Verify that it works by converting to decimal.

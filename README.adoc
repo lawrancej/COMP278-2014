@@ -1,101 +1,13 @@
 = COMP278 (Computer Architecture)
 
-== Lab 2
+== Week 2
 
-Practice number base conversions for integers and floats.
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture3.adoc[Lecture 3: Logic representation overview]
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab2.adoc[Lab 2: Number representation practice]
 
-In Git Bash, create a new file to store your solutions like so:
+== Week 1
 
-----
-cd ~/COMP278-2014       # Go into your repository
-touch lab2solution.txt  # Make a new file called lab2solution.txt
-start .                 # Open up the folder.
-----
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab1.adoc[Lab 1: Number representation overview]
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture2.adoc[Lecture 2: Git setup and Pretest]
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture1.adoc[Lecture 1: Introduction and Syllabus]
 
-Or just open up http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor] and create a new file with your solutions.
-
-Practice conversions. Using http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor]
-
-. Convert 1590 to binary.
-. Convert 0b101110110 to decimal.
-. Convert convert 0b1100 0000 0001 1010 0001 0101 1011 1010 1101 to hexadecimal.
-. Convert 0b100 001 101 101 to octal.
-. Convert 0o31337 to binary.
-. Convert 0xBADF00D to binary and then to octal.
-. Convert 0o6157 to binary and then to decimal.
-. Convert 497 to binary. Then, use two's complement to convert 497 to -497 in binary.
-. Convert 900.79 to binary up to the 1/16ths spot.
-. Count from 0 through 10 in ternary (base 3). Note: the algorithm for counting is similar regardless of the number base. Show the place values.
-
-Save your file as lab2solution.txt, then stage, commit and push:
-
-----
-git add lab2solution.txt
-git commit -m "Added lab 2 solution."
-git push origin master
-----
-
-== Lab 1
-
-Overview Binary, Octal, Decimal, and Hexadecimal conversion for integers and floats.
-
-== Lecture 2
-
-=== Install Git and frontends
-[[install-git]]
-Windows:: https://code.google.com/p/gitextensions/downloads/list[Install Git Extensions, MSysGit and KDiff3].
-+
-NOTE: Stick to the default settings, but when asked, *choose OpenSSH (not PuTTY)*.
-
-Mac OS X:: http://rowanj.github.io/gitx/[Install GitX-dev].
-+
-NOTE: https://developer.apple.com/xcode/downloads/[XCode developer tools] ships with git; otherwise, http://git-scm.com/download/mac[install the latest git from here].
-
-Linux:: http://git-scm.com/download/linux[Install git] using your package manager. http://sourceforge.net/projects/qgit/[QGit, a git frontend] may also be available for your distribution.
-+
-NOTE: Don't forget to use +sudo+ with your package manager.
-
-=== Setup your course repository
-[[setup-repo]]
-IMPORTANT: You must use LeopardSecure, not LeopardGuest.
-
-All platforms:: Paste this into your terminal (Git Bash on Windows):
-+
-----
-curl https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/starterupper.sh | bash
-----
-+
-NOTE: Press +Insert+ to paste in Git Bash.
-
-=== Pretest
-
-https://docs.google.com/forms/d/1VkxOzu9nwzDt4SuFOXCnEMKvP5tulhHJSkN4_cyraCM/viewform[What do you already know about computer architecture? Answer individually]
-
-=== Git practice
-
-IMPORTANT: If you use Windows, first download and install http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor] (Notepad, Word and WordPad do not count). 
-
-Create a new text file in your COMP278-2014 folder called practice.txt. In that file, write a sentence or two about what (if anything) you'd like to learn in this class. Save your work.
-
-Next, stage, commit and push our stuff off to ensure git is working. You can also use Git Extensions to do this.
-
-----
-cd ~/COMP278-2014               # Go into your folder
-git add practice.txt            # Stage practice.txt (include in next commit)
-git commit -m "Git practice"    # Commit changes with a message
-git push origin master          # Send work to your private repository
-----
-
-== Lecture 1
-
-=== Introduction
-
-. What's your name?
-. Why did you pick your major?
-. Tell us something nobody else knows about you.
-
-=== https://github.com/lawrancej/COMP278-2014/blob/master/SyllabusCOMP278Lawrance.docx?raw=true[Syllabus (Word document)]
-
-* The textbook is recommended, but not required. Let's use free books, instead:
-** http://www.allaboutcircuits.com/vol_4/[Lessons in Electric Circuits], http://www.kolls.net/cml/cml-sep1.pdf[Computer Mathematics and Logic], and https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md[a ton of free textbooks]
-* Also, https://github.com/sindresorhus/awesome[check out some awesome stuff].

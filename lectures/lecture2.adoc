@@ -1,0 +1,46 @@
+= Lecture 2: Git Setup and Pretest
+
+== Install Git and frontends
+[[install-git]]
+Windows:: https://code.google.com/p/gitextensions/downloads/list[Install Git Extensions, MSysGit and KDiff3].
++
+NOTE: Stick to the default settings, but when asked, *choose OpenSSH (not PuTTY)*.
+
+Mac OS X:: http://rowanj.github.io/gitx/[Install GitX-dev].
++
+NOTE: https://developer.apple.com/xcode/downloads/[XCode developer tools] ships with git; otherwise, http://git-scm.com/download/mac[install the latest git from here].
+
+Linux:: http://git-scm.com/download/linux[Install git] using your package manager. http://sourceforge.net/projects/qgit/[QGit, a git frontend] may also be available for your distribution.
++
+NOTE: Don't forget to use +sudo+ with your package manager.
+
+== Setup your course repository
+[[setup-repo]]
+IMPORTANT: You must use LeopardSecure, not LeopardGuest.
+
+All platforms:: Paste this into your terminal (Git Bash on Windows):
++
+----
+curl https://raw.githubusercontent.com/lawrancej/COMP278-2014/master/starterupper.sh | bash
+----
++
+NOTE: Press +Insert+ to paste in Git Bash.
+
+== Pretest
+
+https://docs.google.com/forms/d/1VkxOzu9nwzDt4SuFOXCnEMKvP5tulhHJSkN4_cyraCM/viewform[What do you already know about computer architecture? Answer individually]
+
+== Git practice
+
+IMPORTANT: If you use Windows, first download and install http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor] (Notepad, Word and WordPad do not count). 
+
+Create a new text file in your COMP278-2014 folder called practice.txt. In that file, write a sentence or two about what (if anything) you'd like to learn in this class. Save your work.
+
+Next, stage, commit and push our stuff off to ensure git is working. You can also use Git Extensions to do this.
+
+----
+cd ~/COMP278-2014               # Go into your folder
+git add practice.txt            # Stage practice.txt (include in next commit)
+git commit -m "Git practice"    # Commit changes with a message
+git push origin master          # Send work to your private repository
+----

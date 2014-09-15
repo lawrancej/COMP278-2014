@@ -1,0 +1,18 @@
+= Lecture 3: Logic representation overview
+
+== Pretest
+https://docs.google.com/forms/d/1K0-eoZBi5kZnt5w14y3PucNQbFNBK5WVh26-oJsNlXQ/viewform[What do you already know about logic?]
+
+== Truth tables
+
+== Function tables
+
+== Logic expressions
+
+== Venn diagrams
+
+== Logic circuits
+
+== MUX configurations
+
+Hang tight, I'll fill these in soon

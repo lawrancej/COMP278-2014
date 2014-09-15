@@ -1,0 +1,13 @@
+= Lecture 1: Introduction and Syllabus
+
+== Introduction
+
+. What's your name?
+. Why did you pick your major?
+. Tell us something nobody else knows about you.
+
+== https://github.com/lawrancej/COMP278-2014/blob/master/SyllabusCOMP278Lawrance.docx?raw=true[Syllabus (Word document)]
+
+* The textbook is recommended, but not required. Let's use free books, instead:
+** http://www.allaboutcircuits.com/vol_4/[Lessons in Electric Circuits], http://www.kolls.net/cml/cml-sep1.pdf[Computer Mathematics and Logic], and https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md[a ton of free textbooks]
+* Also, https://github.com/sindresorhus/awesome[check out some awesome stuff].
