@@ -1,18 +1,178 @@
 = Lecture 3: Logic representation overview
 
+== Reading
+
+Read chapter 2 of the http://www.cburch.com/socs/written/text/v1.pdf[Science of Computing].
+
 == Pretest
 https://docs.google.com/forms/d/1K0-eoZBi5kZnt5w14y3PucNQbFNBK5WVh26-oJsNlXQ/viewform[What do you already know about logic?]
 
+== Overview: There's more than one way to do it
+
+In this lab, we will learn how to convert among truth tables, logic expressions, Venn diagrams, logic circuits, function tables and MUX configurations.
+
+image:http://lawrancej.github.io/COMP278-2014/images/logic-representations.svg[Representations of NAND]
+
+== Boolean constants
+Remember: 0 is false, and 1 is true. Never mix these up.
+
 == Truth tables
 
-== Function tables
+A **truth table** is a unique, tabular representation of a Boolean logic function. All cells in a truth table consist of the values $0$ or $1$ (except for column labels).
+
+A truth table consists of four quadrants:
+
+[format="csv", options="header"]
+|===
+List Boolean variables (inputs), Logic expressions (outputs)
+Enumaration of variable assignments, Evaluate expression for each row (variable assignment)
+|===
+
+To build a truth table, build up each quadrant from left to right, top to bottom. Label variables in the top left quadrant, then write out the expression in the top right quadrant. To generate all possible variable assignments, treat columns (variables) as digits in a binary number. Count in binary from zero to 2^n - 1, where n is the number of Boolean variables in the top left quadrant. To fill the bottom right quadrant, we can treat the variable assigments as the inputs to the logic expression listed in the upper right quadrant.
+
+Suppose a and b are Boolean variables, and a * b is a function of these variables. This is the truth table.
+
+[format="csv", options="header"]
+|===
+a   , b   , a * b
+0   , 0   , 0
+0   , 1   , 0
+1   , 0   , 0
+1   , 1   , 1
+|===
+
+Complete this truth table.
+
+[format="csv", options="header"]
+|===
+a   , b   , If a is true then b; if a is false then a.
+0   , 0   , 
+0   , 1   , 
+1   , 0   , 
+1   , 1   ,
+|===
+
+English is cumbersome, which is why we use compact and unambiguous logic expressions.
 
 == Logic expressions
 
-== Venn diagrams
+A *logic expression* is a symbolic representaton of functions on Boolean variables. Logic expressions consist of: Boolean variables (e.g., a,b,c,x,y,z), constants (e.g., 0,1), parenthesized expressions or operations on expressions.
 
-== Logic circuits
+You have seen logic expressions in C++ already.
 
-== MUX configurations
+----
+// Boolean variables and constants
+bool a = true;
+bool b = false;
+// Logic expression
+bool f = !a && b || a && !b;
+----
 
-Hang tight, I'll fill these in soon
+Logic expression notation in electronics differs from C++.
+
+[format="csv", options="header"]
+|===
+Operation , C++         , Electronics    , Meaning
+Buffer    , `a`         , a              , **Identity**: just a
+AND       , `a && b`    , a * b          , **Conjunction**: Are both a and b true?
+OR        , `a || b`    , a + b          , **Disjunction**: Are either a or b (or both) true?
+XOR       , `a ^ b`     , (a &oplus; b)  , **Exclusive or**: Is a not equal to b?
+NOT       , `!a`        , a'             , Invert a (flip the bit)
+NAND      , `!(a && b)` , (a * b)'       , Either a or b (or both) are false
+NOR       , `!(a || b)` , (a + b)'       , Are both a and b false?
+XNOR      , `!(a ^ b)`  , (a &oplus; b)' , **Equality** Is a equal to b?
+|===
+
+The truth tables for these expressions are below.
+
+[format="csv", options="header"]
+|===
+a   , b   , a   , a * b , a + b , a &oplus; b
+0   , 0   , 0   , 0     , 0     , 0
+0   , 1   , 0   , 0     , 1     , 1
+1   , 0   , 1   , 0     , 1     , 1
+1   , 1   , 1   , 1     , 1     , 0
+|===
+
+[format="csv", options="header"]
+|===
+a   , b   , a'  , (a * b)' , (a + b)' , (a &oplus; b)'
+0   , 0   , 1   , 1        , 1        , 1
+0   , 1   , 1   , 1        , 0        , 0
+1   , 0   , 0   , 1        , 0        , 0
+1   , 1   , 0   , 0        , 0        , 1
+|===
+
+Logic expressions borrow notation from algebra. We intentionally write out AND as a * b, since AND corresponds to multiplication on single bits. Interestingly, this does not apply for OR: 0 + 1 = 1, but 1 + 1 = 2, not 1, which is why we read a + b as "a OR b", not "a plus b".  Buffer may seem pointless, but it can serve a purpose in designing circuits.
+
+Logic operators also borrow order of operations from algebra.Remember PEMDAS? In logic, it's PNAO. 
+
+[format="csv", options="header"]
+|===
+Mnemonic  , Operation             , Remarks
+Please    , Parenthesis           , Group operations
+Note      , NOT                   , NOT is like a negative sign
+And       , AND, NAND             , AND is 1-bit multiplication
+Order     , OR, NOR, XOR, XNOR    , OR is almost addition
+|===
+
+In logic expression a+b*c', we have three operations, and we evaluate NOT c first, then AND that with b, and finally OR with a. 
+
+== Venn Diagrams
+
+Each row in a truth table corresponds to an area in a Venn diagram.
+
+image:http://lawrancej.github.io/COMP278-2014/images/venn-diagram.svg[Venn diagram, truth table, and logic expressions]
+
+We can represent logic operations with Venn diagrams. Compare Venn diagrams between the left and right sides. What do you notice? Union and intersection are set operations: what logic operations do these correspond to?
+
+image:http://lawrancej.github.io/COMP278-2014/images/venn-diagram-operations.svg[Compare Venn diagrams between the left and right sides.]
+
+== Logic gates
+
+Logic gates correspond to logic operations. In each gate, inputs are to the left and outputs are to the right. Compare gates on the left and right sides. Bubbles (circles) mean NOT (invert).
+
+image:http://lawrancej.github.io/COMP278-2014/images/gates.svg[Logic gates]
+
+To convert a logic expression to a circuit diagram.
+
+. List all variables vertically on the left hand side.
+. Evaluate the next operation in the expression by order of operations.
+. Place the corresponding logic gate to the right.
+. Wire the inputs to relevant subexpressions.
+. Label the output with the corresponding subexpression.
+. Repeat steps 2-5 until done evaluating the expression.
+
+== Expression to circuit diagram
+In Logisim, draw this expression as a circuit: x'+y*z
+
+=== Right
+image:http://lawrancej.github.io/COMP278-2014/images/logicly-diagram-right.png[What you should see]
+ 
+=== **Wrong**
+image:http://lawrancej.github.io/COMP278-2014/images/logicly-diagram-wrong.png[What you shouldn't see]
+
+== Function tables
+A **function table** is like a truth table; however, cells in the lower right quadrant can be logic expressions.
+
+For example, here's the truth table for a &oplus; b:
+
+[format="csv", options="header"]
+|===
+a   , b   , a &oplus; b
+0   , 0   , 0
+0   , 1   , 1
+1   , 0   , 1
+1   , 1   , 0
+|===
+
+We can condense this down to this function table, by freeing variable b:
+
+[format="csv", options="header"]
+|===
+a   , a &oplus; b
+0   , b
+1   , b'
+|===
+
+Study this function table carefully in relation to the truth table above. We shrank down a truth table without losing information by noticing that a &oplus; b is the same as b if a is false, and a &oplus; b is the inverse of b if a is true.
