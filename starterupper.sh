@@ -718,5 +718,5 @@ if [ $# == 0 ]; then
 elif [[ $1 == "clean" ]]; then
     Github_clean
 elif [[ $1 == "collaborators" ]]; then
-    github_add_collaborators
+    Github_addCollaborators
 fi
