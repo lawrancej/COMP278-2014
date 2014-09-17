@@ -355,6 +355,21 @@ Github_validUsername() {
     printf "false"
 }
 
+# Ask user to verify email
+Github_verifyEmail() {
+    echo "Press enter to open https://github.com/settings/emails to add your school email address."
+    echo "Open your email inbox and wait a minute for an email from Github."
+    echo "Follow its instructions: click the link in the email and click Confirm."
+    echo "$(Utility_paste $(User_getEmail) "your school email")"
+    Interactive_fileOpen "https://github.com/settings/emails"
+}
+
+# Ask the user to get the discount
+Github_getDiscount() {
+    echo "Press enter to open https://education.github.com/discount_requests/new to request an individual student educational discount from Github."
+    Interactive_fileOpen "https://education.github.com/discount_requests/new"
+}
+
 # Ask the user if they have an account yet, and guide them through onboarding
 Github_join() {
     local hasAccount="n"
@@ -380,15 +395,10 @@ Github_join() {
             echo "2. Request an individual student educational discount."
             echo ""
         fi
-
-        echo "Press enter to open https://github.com/settings/emails to add your school email address."
-        echo "Open your email inbox and wait a minute for an email from Github."
-        echo "Follow its instructions: click the link in the email and click Confirm."
-        echo "$(Utility_paste $(User_getEmail) "your school email")"
-        Interactive_fileOpen "https://github.com/settings/emails"
         
-        echo "Press enter to open https://education.github.com/discount_requests/new to request an individual student educational discount from Github."
-        Interactive_fileOpen "https://education.github.com/discount_requests/new"
+        Github_verifyEmail
+        Github_getDiscount
+
     fi
 }
 
@@ -540,15 +550,19 @@ Github_createPrivateRepo() {
     
     echo "Creating private repository $githubLogin/$REPO on Github..."
     local result="$(Github_invoke POST "/user/repos" "{\"name\": \"$REPO\", \"private\": true}")"
-    if [[ ! -z $(echo $result | grep "over your quota" ) ]]; then
+    if [[ ! -z $(echo $result | grep "HTTP/... 4.." ) ]]; then
         echo -n -e "\e[1;37;41mERROR\e[0m: "
-        echo "Unable to create private repository because you are over quota."
+        echo "Unable to create private repository."
         echo
         echo "Troubleshooting:"
         echo "* Make sure you have verified your school email address."
         echo "* Apply for the individual student educational discount if you haven't already done so."
         echo "* If you were already a Github user, free up some private repositories."
         echo
+        
+        Github_verifyEmail
+        Github_getDiscount
+        
         Github_manualCreatePrivateRepo
     fi
 }
@@ -635,9 +649,9 @@ github_configure_email() {
 }
 
 
-github_add_collaborators() {
+Github_addCollaborators() {
     cd ~/$REPO
-    for repository in $(curl -i -H "Authorization: token $(git config --global github.token)" https://api.github.com/user/repos?type=member\&sort=created\&page=1\&per_page=100 2> /dev/null | grep "full_name.*$REPO" | sed s/.*full_name....// | sed s/..$//); do
+    for repository in $(Github_invoke GET "/user/repos?type=member\&sort=created\&page=1\&per_page=100" "" | grep "full_name.*$REPO" | sed s/.*full_name....// | sed s/..$//); do
         git remote add ${repository%/*} git@github.com:$repository.git 2> /dev/null
     done
     git fetch --all
