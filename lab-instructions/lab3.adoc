@@ -14,7 +14,7 @@ Or just open up http://notepad-plus-plus.org/download/v6.6.9.html[a proper text 
 
 Practice logic representation conversions and binary arithmetic.
 
-. Let A and B be two 2-bit binary numbers (i.e., A1 A0 and B1 B0). Write out a truth table for A <= B. For example, 0b10 is less than or equal to 0b11, so the output for that row should be true.
+. Let A and B be two 2-bit binary numbers (i.e., A1 A0 and B1 B0). Write out a truth table for A less than or equal to B. For example, 0b10 is less than or equal to 0b11, so the output for that row should be true.
 . Write out the equivalent logic expression for the previous answer.
 . Express the majority circuit (introduced in lecture) as an equivalent function table by omitting the Z row.
 . Write out the truth table for the minority circuit (it's true when the minority of X, Y, and Z are true).
