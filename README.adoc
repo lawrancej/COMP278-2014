@@ -1,7 +1,12 @@
 = COMP278 (Computer Architecture)
 
+== Week 3
+
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab3.adoc[Lab 2: Number representation practice]
+
 == Week 2
 
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture3.adoc[Lecture 4: Binary arithmetic]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture3.adoc[Lecture 3: Logic representation overview]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab2.adoc[Lab 2: Number representation practice]
 
