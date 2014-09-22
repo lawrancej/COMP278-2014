@@ -2,7 +2,7 @@
 
 == Week 3
 
-* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab3.adoc[Lab 2: Number representation practice]
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab3.adoc[Lab 3: Logic representation and binary arithmetic]
 
 == Week 2
 
