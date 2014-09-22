@@ -1,0 +1,31 @@
+== Lab 3: Logic representation and binary arithmetic practice
+
+Practice logic representation conversions and binary arithmetic.
+
+In Git Bash, create a new file to store your solutions like so:
+
+----
+cd ~/COMP278-2014       # Go into your repository
+touch lab3solution.txt  # Make a new file called lab2solution.txt
+start .                 # Open up the folder.
+----
+
+Or just open up http://notepad-plus-plus.org/download/v6.6.9.html[a proper text editor] and create a new file with your solutions in your COMP278-2014 folder.
+
+Practice logic representation conversions and binary arithmetic.
+
+. Let A and B be two 2-bit binary numbers (i.e., A1 A0 and B1 B0). Write out a truth table for A <= B. For example, 0b10 is less than or equal to 0b11, so the output for that row should be true.
+. Write out the equivalent logic expression for the previous answer.
+. Express the majority circuit (introduced in lecture) as an equivalent function table by omitting the Z row.
+. Write out the truth table for the minority circuit (it's true when the minority of X, Y, and Z are true).
+. Write out the equivalent logic expression for the previous answer.
+. What is 0b111100 + 0b11111? Show all place values, and in binary show carrys and the sum. (You may check work by doing binary to decimal conversion)
+. What is 0b1011011 + 0b1110100? Show all place values, and in binary show carrys and the sum. (You may check work by doing binary to decimal conversion)
+. What is 0b101110101 - 0b101101? Show all place values, and in binary show carrys and the sum. (You may check work by doing binary to decimal conversion)
+. What is 0b110100 - 0b10111000? Show all place values, and in binary show carrys and the sum. (You may check work by doing binary to decimal conversion)
+
+----
+git add lab3solution.txt
+git commit -m "Added lab 3 solution."
+git push origin master
+----

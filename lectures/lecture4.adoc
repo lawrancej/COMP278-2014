@@ -1,0 +1,62 @@
+= Lecture 4: Git merging and simple circuits
+
+== Git merging
+
+----
+cd ~/COMP278-2014/                       # Go into your git repository (cd means change directory, ~ means home folder)
+git fetch --all                          # Fetch from everybody
+git merge upstream/master                # Merge stuff in
+git mergetool                            # If you have a merge CONFLICT, run this
+git checkout --ours <file with conflict> # If KDiff3 isn't much help, checkout our version of the file
+git checkout --theirs <file goes here>   # If you prefer the upstream version, checkout that one
+git commit -am "Fixed merge conflict"    # Stage and commit to fix the conflict
+git push origin master                   # Push the merged version to your private repository
+----
+
+== Majority circuit
+
+=== From English to Truth table
+
+English: Implement a circuit with input bits X, Y, and Z, and output whether the majority (2 or 3) of the input bits are true (1).
+
+To convert this to a truth table, evaluate the English expression for each row in the truth table.
+
+[format="csv",output="header"]
+|===
+X,Y,Z,Majority of X Y Z true
+0,0,0,0
+0,0,1,0
+0,1,0,0
+0,1,1,1
+1,0,0,0
+1,0,1,1
+1,1,0,1
+1,1,1,1
+|===
+
+=== From truth table to logic expression
+
+. For each input column, express truth in terms of that column (e.g., if X is false, write out X', if Y is true, write out Y).
+. Then, for each true output row, write out the equivalent logic expression. Or all logic expressions together.
+
+[format="csv",output="header"]
+|===
+1,1,1,X,Y,Z,Majority of X Y Z true,Logic
+X',Y',Z',0,0,0,0,
+X',Y',Z,0,0,1,0,
+X',Y,Z',0,1,0,0,
+X',Y,Z,0,1,1,1,X'Y'Z+
+X,Y',Z',1,0,0,0,
+X,Y',Z,1,0,1,1,XY'Z+
+X,Y,Z',1,1,0,1,XYZ'+
+X,Y,Z,1,1,1,1,XYZ
+|===
+
+== Binary addition
+
+Binary addition is just like decimal addition.
+
+== Binary subtraction
+
+A - B is the same as A + (-B). So, if we negate B and add it to A, we can do subtraction.
+
