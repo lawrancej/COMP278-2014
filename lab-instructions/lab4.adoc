@@ -1,0 +1,66 @@
+= Lab 4: Boolean algebra, duals, multiplexers, Karnaugh maps
+
+Practice boolean algebra simplification, dual form conversion, Karnaugh maps and multiplexer construction.
+
+In Git Bash, create a new file to store your solutions like so:
+
+----
+cd ~/COMP278-2014       # Go into your repository
+touch lab4solution.txt  # Make a new file called lab4solution.txt
+start .                 # Open up the folder.
+----
+
+== Instructions
+
+[format="csv",output="header"]
+|===
+Law, Form, Dual form
+**Identity**, a * 1 = a                   , a + 0 = a
+**Commutative**    , a * b = b * a               , a + b = b + a
+**Associative**    , (a * b) * c = a * (b * c)   , (a + b) + c = a + (b + c)
+Identity           , a * 0 = 0                   , a + 1 = 1
+Distributive       , a * (b + c) = a * b + a * c , a + (b * c) = (a + b) * (a + c)
+Idempotence        , a * a = a                   , a + a = a
+Absorption         , a + a * b = a               , a * (a + b) = a
+Complement         , 0' = 1                      , 1' = 0
+Complement         , a * a' = 0                  , a + a' = 1
+Involution         , a'' = a                     , a'' = a
+DeMorgan's         , (a + b)' = a' * b'          , (a * b)' = a' + b'
+|===
+
+Use the laws above to simplify expressions. Label the laws that you apply as you apply them (no more than one law per line).
+
+. Show (a * b)' * (a' + b) * (b' + b) = a'
+. Show c + (b * c)' = 1
+. Show (a + c) * (a * d + a * d') + a * c + c = a + c
+. Simplify a' * (a + b) + (b + a * a) * (a + b')
+. Show (a' * b') + (a' * b) + (a * b') = (a * b)'
+
+Find the dual form of these expressions:
+
+. (a + b)' + c * a' + 1
+. 1 + 1 * 0'
+
+Convert this Karnaugh map to a truth table (AB are the rows, XY are the columns).
+
+[format="csv",output="header"]
+|===
+AB\XY,00,01,11,10
+00, 1, 0, 0, 0
+01, 1, 1, 0, 0
+11, 1, 1, 1, 0
+10, 1, 1, 1, 1
+|===
+
+Complete the following exercises using Logisim. Open lab4solution.circ in this folder.
+
+. Implement the majority (of 3 input bits) circuit using a 4-1 multiplexer.
+. Implement a full adder (a + b + cin) using two 4-1 multiplexers (one multiplexer for carry out, one multiplexer for sum, using the same input variables).
+
+When you are done, save your work and do the following:
+
+----
+git add lab4solution.*           # Stage your changes to the next commit
+git commit -am "Lab 4 complete." # Record your changes locally
+git push origin master           # Push your work
+----
