@@ -14,7 +14,7 @@
 == Week 4
 
 * Lecture 8: Practice midterm II
-* Lecture 7: Practice midterm I
+* http://lawrancej.github.io/COMP278-2014/exams/practice-midterm1.pdf[Lecture 7: Practice midterm I]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab4.adoc[Lab 4: Boolean algebra, Karnaugh maps, multiplexers]
 
 == Week 3
