@@ -24,8 +24,8 @@ A truth table consists of four quadrants:
 
 [format="csv", options="header"]
 |===
-List Boolean variables (inputs), Logic expressions (outputs)
-Enumaration of variable assignments, Evaluate expression for each row (variable assignment)
+Input variables, Output functions (logic expressions)
+Enumeration of variable assignments,Evaluate expression for each row (variable assignment)
 |===
 
 To build a truth table, build up each quadrant from left to right, top to bottom. Label variables in the top left quadrant, then write out the expression in the top right quadrant. To generate all possible variable assignments, treat columns (variables) as digits in a binary number. Count in binary from zero to 2^n - 1, where n is the number of Boolean variables in the top left quadrant. To fill the bottom right quadrant, we can treat the variable assigments as the inputs to the logic expression listed in the upper right quadrant.

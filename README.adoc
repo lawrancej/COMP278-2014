@@ -1,7 +1,26 @@
 = COMP278 (Computer Architecture)
 
+== Week 6
+
+* Lecture 11: Hand back midterms
+* Lab 6: State machine design
+
+== Week 5
+
+* Lecture 10: Sequential logic, finite state machines
+* Lecture 9: Latches, flip-flops, registers
+* Lab 5: Midterm
+
+== Week 4
+
+* Lecture 8: Practice midterm II
+* Lecture 7: Practice midterm I
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab4.adoc[Lab 4: Boolean algebra, Karnaugh maps, multiplexers]
+
 == Week 3
 
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture6.adoc[Lecture 6: Function tables, multiplexers]
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture5.adoc[Lecture 5: Boolean algebra, Gray codes and Karnaugh maps]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab3.adoc[Lab 3: Logic representation and binary arithmetic]
 
 == Week 2

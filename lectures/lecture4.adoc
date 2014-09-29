@@ -1,4 +1,4 @@
-= Lecture 4: Git merging and simple circuits
+= Lecture 4: Git merging, combination logic circuit design, binary arithmetic
 
 == Git merging
 
@@ -13,13 +13,17 @@ git commit -am "Fixed merge conflict"    # Stage and commit to fix the conflict
 git push origin master                   # Push the merged version to your private repository
 ----
 
-== Majority circuit
+== Convert English to Truth table
 
-=== From English to Truth table
+To design a combination logic circuit (a circuit in which the output is a function of the input, or equivalently, a circuit without memory), first convert the English description to a truth table.
 
-English: Implement a circuit with input bits X, Y, and Z, and output whether the majority (2 or 3) of the input bits are true (1).
+. Identify the input variable(s) and the output columns.
+. Treat all input variables together as a binary number, and count in binary, row by row, to enumerate all possible inputs.
+. Evaluate the English expression for each input row in the truth table.
 
-To convert this to a truth table, evaluate the English expression for each row in the truth table.
+=== Example
+
+Implement a circuit with input bits X, Y, and Z, and output whether the majority (2 or 3) of the input bits are true (1).
 
 [format="csv",output="header"]
 |===
@@ -34,29 +38,157 @@ X,Y,Z,Majority of X Y Z true
 1,1,1,1
 |===
 
-=== From truth table to logic expression
+== Convert truth table to logic expression
 
-. For each input column, express truth in terms of that column (e.g., if X is false, write out X', if Y is true, write out Y).
-. Then, for each true output row, write out the equivalent logic expression. Or all logic expressions together.
+To convert a bulky truth table into a compact logic expression, follow these steps:
+
+. For each input column in the truth table:
+.. Swap 1 with the input variable
+.. Swap 0 with NOT the input variable
+. AND input and output columns on each row
+. OR rows together
+. Simplify: A*0=0, A*1=A, A+0=A
+
+The result is a logic expression.
+
+=== Example (continued)
+
+==== Step 1: Swap 1 with the input variable, Swap 0 with NOT the input variable
 
 [format="csv",output="header"]
 |===
-1,1,1,X,Y,Z,Majority of X Y Z true,Logic
-X',Y',Z',0,0,0,0,
-X',Y',Z,0,0,1,0,
-X',Y,Z',0,1,0,0,
-X',Y,Z,0,1,1,1,X'Y'Z+
-X,Y',Z',1,0,0,0,
-X,Y',Z,1,0,1,1,XY'Z+
-X,Y,Z',1,1,0,1,XYZ'+
-X,Y,Z,1,1,1,1,XYZ
+1,1,1,Majority of X Y Z true
+X',Y',Z',0
+X',Y',Z,0
+X',Y,Z',0
+X',Y,Z,1
+X,Y',Z',0
+X,Y',Z,1
+X,Y,Z',1
+X,Y,Z,1
 |===
+
+==== Step 2: AND input variables and output column on each row
+
+[format="csv",output="header"]
+|===
+X'*Y'*Z'*0
+X'*Y'*Z*0
+X'*Y*Z'*0
+X'*Y*Z*1
+X*Y'*Z'*0
+X*Y'*Z*1
+X*Y*Z'*1
+X*Y*Z*1
+|===
+
+==== Step 3: OR rows together
+
+X'*Y'*Z'*0 + X'*Y'*Z*0 + X'*Y*Z'*0 + X'*Y*Z*1 + X*Y'*Z'*0 + X*Y'*Z*1 + X*Y*Z'*1 + X*Y*Z*1
+
+==== Step 4: Simplify: A*0=0, A*1=A, A+0=A
+
+X'*Y*Z + X*Y'*Z + X*Y*Z' + X*Y*Z
 
 == Binary addition
 
-Binary addition is just like decimal addition.
+Binary addition is just like decimal addition: add up digits by place value, and carry any excess to the next place value.
+
+=== Example
+
+----
+  1111   Carry
+   1101      A
+  + 111  +   B
+  -----  -----
+  10100    Sum
+----
+
+=== Half adder
+
+A half adder is a circuit that does addition without any carry-ins.
+
+[format="csv",output="header"]
+|===
+A,B,Sum (A+B),Carry
+0,0,0,0
+0,1,1,0
+1,0,1,0
+1,1,0,1
+|===
+
+=== Full adder
+
+A full adder is a circuit that does addition with carry-ins.
+Notice that the first four rows of the truth table are the same as the half adder.
+
+[format="csv",output="header"]
+|===
+Carry-in,A,B,Sum (A+B),Carry-out
+0,0,0,0,0
+0,0,1,1,0
+0,1,0,1,0
+0,1,1,0,1
+1,0,0,1,0
+1,0,1,0,1
+1,1,0,0,1
+1,1,1,1,1
+|===
 
 == Binary subtraction
 
-A - B is the same as A + (-B). So, if we negate B and add it to A, we can do subtraction.
+A - B is the same as A + (-B). So, to subtract, negate B and add it to A.
 
+Keep in mind that in two's complement, the most significant place value is negative.
+To do subtraction, remember to make enough room to represent the negation of B.
+Also, if you have an extra carry when doing subtraction, you must discard it.
+
+=== Example
+
+0b10111 - 0b1101
+
+This is the same as:
+
+----
+    10111
+ + (-1101)
+ ---------
+----
+
+We need to negate the second number in two's complement, but first, make sure we have room to negate it (recall that the most significant place value in two's complement is negative).
+Adding zeroes in front of both numbers doesn't affect their values.
+
+----
+   010111
+ - 001101
+ ---------
+----
+
+Now we're ready. Let's negate the second number (also known as the subtrahend).
+
+----
+   010111
+ + 110011
+ ---------
+----
+
+Now we can add as usual.
+
+----
+  110111  
+   010111
+ + 110011
+ ---------
+   001010
+----
+
+Hey, we have an extra carry!
+Since it's outside the bounds we've established up front, we can safely discard the extra carry.
+
+To check our work, lets convert everything back to decimal:
+
+----
+23-13 = 10
+----
+
+Huzzah!

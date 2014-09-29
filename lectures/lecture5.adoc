@@ -1,0 +1,111 @@
+= Lecture 5: Boolean algebra, Gray codes and Karnaugh maps
+
+== Laws of Boolean algebra
+
+Many of the laws of Boolean algebra are common with algebra on integers and reals, including identity, commutative and associative laws.
+Furthermore, several laws, such as the distributive law (used in factoring), have forms unique to Boolean algebra.
+
+[format="csv",output="header"]
+|===
+Law, Form, Dual form
+**Identity**, a * 1 = a                   , a + 0 = a
+**Commutative**    , a * b = b * a               , a + b = b + a
+**Associative**    , (a * b) * c = a * (b * c)   , (a + b) + c = a + (b + c)
+Identity           , a * 0 = 0                   , a + 1 = 1
+Distributive       , a * (b + c) = a * b + a * c , a + (b * c) = (a + b) * (a + c)
+Idempotence        , a * a = a                   , a + a = a
+Absorption         , a + a * b = a               , a * (a + b) = a
+Complement         , 0' = 1                      , 1' = 0
+Complement         , a * a' = 0                  , a + a' = 1
+Involution         , a'' = a                     , a'' = a
+DeMorgan's         , (a + b)' = a' * b'          , (a * b)' = a' + b'
+|===
+
+== Dual forms
+
+All laws of Boolean algebra come in two forms, the law and its **dual form**.
+The dual form of any valid equation in Boolean algebra is also true.
+
+To find the dual form of a logic expression:
+
+. Evaluate the original expression and put parentheses around all subexpressions
+. Swap 1 with 0 (and vice versa)
+. Swap AND with OR (and vice versa)
+. Leave complements (NOT) alone
+
+Notice how the steps above convert the form of a law to its dual form?
+
+=== Example
+
+Find the dual form of Z'+X*Y
+
+This is Z'*(X+Y).
+
+== Simplification
+
+Apply the laws of Boolean algebra to an expression or equation to simplify/prove it.
+This is the sort of thing that's easier said than done, and practice will help.
+
+Hint: Work slowly and methodically: picture yourself working your way through a maze.
+Starting with the original expression, apply one law at a time until you arrive at the answer.
+At each step, you may choose many possible paths based on the laws you apply.
+
+=== Example
+
+Show X*Y'*Z + X*Y*Z' + X*Y*Z = X*(Y+Z)
+
+[format="csv",output="header"]
+|===
+X*Y'*Z + X*Y*Z' + X*Y*Z = X*(Y+Z), Original expression
+X*(Y'*Z + Y*Z' + Y*Z) = X*(Y+Z), Distributive law
+X*(Z*(Y' + Y) + Y*Z') = X*(Y+Z), Distributive law
+X*(Z*(1) + Y*Z') = X*(Y+Z), Complements
+X*(Z + Y*Z') = X*(Y+Z), Identity
+X*(Z + Z*Y + Y*Z') = X*(Y+Z), Absorption
+X*(Z + Y*(Z + Z')) = X*(Y+Z), Distributive law
+X*(Z + Y*(1)) = X*(Y+Z), Complements
+X*(Z + Y) = X*(Y+Z), Identity
+X*(Y + Z) = X*(Y+Z), Commutative law
+|===
+
+== Gray codes
+
+A Gray code (also known as a reflected binary code) is a way of encoding binary numbers so that every increment changes only a single bit.
+
+When we count in binary, we repeat 01 over and over again in the least significant place value.
+When we count in gray codes, we repeat 0110 over and over again in the rightmost bit.
+
+[format="csv",output="header"]
+|===
+Binary,Decimal,Gray code
+0000,0,0000
+0001,1,0001
+0010,0,0011
+0011,1,0010
+0100,0,0110
+0101,1,0111
+0110,0,0101
+0111,1,0100
+1000,0,1100
+1001,1,1101
+1010,0,1111
+1011,1,1110
+1100,0,1010
+1101,1,1011
+1110,0,1001
+1111,1,1000
+|===
+
+What's the point?
+
+== Karnaugh maps (K-Maps)
+
+Karnaugh maps:
+
+* are an alternate way of representing truth tables and function tables
+* layout a single output function and use the horizontal and vertical axes of a table for the values of the inputs
+* use Gray codes to ensure that related values go together spatially in the table
+* can help you find simple logic expressions
+
+http://www.ee.calpoly.edu/media/uploads/resources/KarnaughExplorer_1.html[Lets examine Karnaugh maps in action]
+
