@@ -49,7 +49,7 @@ boolean Four1MUX(byte selector, boolean input0, boolean input1, boolean input2, 
 }
 ----
 
-The function table for a 4-1 multiplexer (4 input, 1 output MUX) is as follows:
+The function table for a 4-1 MUX (4 input, 1 output multiplexer) is as follows:
 
 [format="csv", options="header"]
 |===
@@ -60,11 +60,11 @@ S1,S0,Output
 1,1,Input3
 |===
 
-Select bits S1 and S0 represent S in binary. 
+Select bits S1 and S0 represent the most and least significant bits of S (respectively) in binary. 
 
 == Truth/function table to multiplexer
 
-To implement a combination logic function with a multiplexer, the number of rows in the truth/function table must equal the number of inputs to the multiplexer.
+To implement a combination logic function with a multiplexer, the number of rows (excluding the header) in the truth/function table must equal the number of inputs to the multiplexer.
 If your truth table has more rows than the multiplexer has inputs, write out a function table with the same number of inputs as the multiplexer equivalent to the truth table.
 
 . Align the outputs of your table to the inputs of the multiplexer.

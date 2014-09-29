@@ -15,7 +15,7 @@ Binary has "bi" in it, meaning two, just like bicycle and bisexual.
 Octal has "oct" in it, meaning eight, just like octagon (stop sign) and October.
 If you forgot this piece of historical trivia, October used to be the eighth month before Julius and Augustus Caesar named months after themselves.
 Decimal has "deci" in it, meaning ten, like December and decimate.
-December used to be the tenth month just like October was the eighth month, and decimate meant kill one out of every ten soldiers as a punishment for the group (those Romans!).
+December used to be the tenth month just like October was the eighth month, and decimate meant kill one out of every ten soldiers as a punishment for the group (those Romans were ahead of their time: they got medieval on their soldiers!).
 Hexadecimal has "hex" and "deci" in it, and "hex" means six, just like hexagon. Think 6 + 10 = 16.
 
 == Why learn other bases?
@@ -116,7 +116,7 @@ Binary , Hexadecimal , Octal , Decimal
 
 As you read from the top to the bottom, notice how in we cycle through all digits faster in the least significant digit than in the most significant digit. For example, as you read the column of numbers in the 1's place for binary numbers, it alternates between 0 and 1, the 2's place alternates between 00 and 11, and the 4's place alternates between 4 zeroes and 4 ones, and the eights place alternates between 8 zeroes and 8 ones. It's no different than how the ones and the tens places look when counting in decimal. In the table above, you should also notice the same pattern for octal numbers: in the 1's place, we cycle from 0-7; in the 8's place, we repeat 0 eight times before repeating 1 eight times, and so forth.
 
-To count in binary, write from top to bottom, not left to right, and cycle through each bit in the least significant place, and then cycle through 00, 11 in the two's place, and so forth.
+To count in binary, write from top to bottom, not left to right, and cycle through each bit in the least significant digit, and then cycle through 00, 11 in the two's place, and so forth.
 
 What will the next row in the table above look like?
 
@@ -237,7 +237,7 @@ Decode this binary number into hexadecimal. I've already grouped the binary numb
 1011 1010 1011 1110
 ----
 
-Decode this binary numbewr into hex. This also spells out something. What happened to Ed?
+Decode this binary number into hex. This also spells out something. What happened to Ed?
 
 ----
 1110 1101
