@@ -1,0 +1,9 @@
+Binary, Number,0,1
+Boolean,Value             , False          , True     
+English,Word              , No             , Yes
+Switch, Position          , Off            , On
+CPU,    Voltage           , Low            , High
+HD,     Magnetic Polarity , South          , North
+CD-ROM, Pit/land edge     , Non-edge       , Edge
+RAM,    Electric charge   , Negative       , Positive
+Finger, Position          , Closed         , Extended

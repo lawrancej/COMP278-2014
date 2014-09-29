@@ -1,0 +1,5 @@
+Prefix , Base
+0b     , Binary
+0o     , Octal
+None   , Decimal
+0x     , Hexadecimal
