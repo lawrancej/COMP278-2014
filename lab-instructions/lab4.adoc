@@ -36,7 +36,7 @@ Use the laws above to simplify expressions. Label the laws that you apply as you
 . Simplify a' * (a + b) + (b + a * a) * (a + b')
 . Show (a' * b') + (a' * b) + (a * b') = (a * b)'
 
-Find the dual form of these expressions:
+Find the dual form of these expressions (DO NOT simplify):
 
 . (a + b)' + c * a' + 1
 . 1 + 1 * 0'
