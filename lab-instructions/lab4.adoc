@@ -52,7 +52,7 @@ AB\XY,00,01,11,10
 10, 1, 1, 1, 1
 |===
 
-Complete the following exercises using Logisim. Open lab4solution.circ in this folder.
+Complete the following exercises using http://sourceforge.net/projects/circuit/[Logisim]  (or the https://github.com/lawrancej/logisim[unreleased development version]). Open lab4solution.circ in this folder.
 
 . Implement the majority (of 3 input bits) circuit using a 4-1 multiplexer.
 . Implement a full adder (a + b + cin) using two 4-1 multiplexers (one multiplexer for carry out, one multiplexer for sum, using the same input variables).
