@@ -1,0 +1,5 @@
+Base , Name                 , Digits  , Example
+2    , **Bi**nary           , 0-1     , 1010
+8    , **Oct**al            , 0-7     , 12
+10   , **Deci**mal          , 0-9     , 10
+16   , **Hex**adecimal      , 0-9,A-F , A
