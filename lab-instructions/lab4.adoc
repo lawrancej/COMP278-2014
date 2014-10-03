@@ -54,8 +54,36 @@ AB\XY,00,01,11,10
 
 Complete the following exercises using http://sourceforge.net/projects/circuit/[Logisim]  (or the https://github.com/lawrancej/logisim[unreleased development version]). Save lab4solution.circ in your local git repository folder (COMP278-2014).
 
-. Implement the majority (of 3 input bits) circuit using a 4-1 multiplexer.
-. Implement a full adder (a + b + cin) using two 4-1 multiplexers (one multiplexer for carry out, one multiplexer for sum, using the same input variables).
+* Implement the majority (of 3 input bits) circuit using a 4-1 multiplexer.
+
+[format="csv",output="header"]
+|===
+X,Y,Z,Majority of X Y Z true
+0,0,0,0
+0,0,1,0
+0,1,0,0
+0,1,1,1
+1,0,0,0
+1,0,1,1
+1,1,0,1
+1,1,1,1
+|===
+
+* Implement a full adder (a + b + cin) using two 4-1 multiplexers (one multiplexer for carry out, one multiplexer for sum, using the same input variables).
+
+[format="csv",output="header"]
+|===
+Carry-in,A,B,Sum (A+B),Carry-out
+0,0,0,0,0
+0,0,1,1,0
+0,1,0,1,0
+0,1,1,0,1
+1,0,0,1,0
+1,0,1,0,1
+1,1,0,0,1
+1,1,1,1,1
+|===
+
 
 When you are done, save your work and do the following:
 
