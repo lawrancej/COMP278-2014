@@ -1,0 +1,157 @@
+= COMP278 Practice Midterm
+
+== Binary Arithmetic
+
+Show place values and carry bits.
+
+=== Problem 1
+
+    0010111   Carry
+    10010011  A
+  + 11010101  B
+  ----------
+   101101000  Sum
+
+=== Problem 2
+
+     100010110   A
+  -    1110010  -B
+  ------------  --
+
+Same as:
+
+    100011110   Carry
+    0100010110  A
+  + 1110001110  + (-B using two's complement)
+  ------------  ------
+    0010100100  Sum (we discarded the extra carry)
+
+== Number representation
+
+Convert numbers to specified bases.
+
+=== Problem 1
+
+Convert Octal 33662575655 to binary, and then to hexadecimal.
+
+[format="csv"]
+|===
+Octal,3,3,6,6,2,5,7,5,6,5,5
+Binary in groups of 3,011,011,110,110,010,101,111,101,110,101,101
+|===
+
+[format="csv",output="header"]
+|===
+Binary in groups of 4,0,1101,1110,1100,1010,1111,1011,1010,1101
+Hexadecimal,0,D,E,C,A,F,B,A,D
+|===
+
+=== Problem 2
+
+Convert 170 to binary, and then to octal.
+
+   170
+  -128
+  ----
+    42
+  
+  Place values          128 64 32 16 8 4 2 1
+  Binary                 1   0  1  0 1 0 1 0
+  Binary in groups of 3  10  101 010          
+  Octal                  2    5   2           
+
+== Combinational logic design
+
+Given a 4-bit binary number A, design a circuit that outputs whether the number of bits set to 1 equals the number of bits set to 0.
+For example, 0010 has three bits set to 0 and one bit set to 1.
+Thus, for 0010, the circuit outputs 0 to indicate the number of 0 bits is not equal to the number of 1 bits.
+
+=== Problem 1
+
+Show the truth table for this circuit.
+Label inputs as A3, A2, A1, A0. Label the output as f.
+
+[format="csv",output="header"]
+|===
+A3,A2,A1,A0,f
+0,0,0,0,0
+0,0,0,1,0
+0,0,1,0,0
+0,0,1,1,1
+0,1,0,0,0
+0,1,0,1,1
+0,1,1,0,1
+0,1,1,1,0
+1,0,0,0,0
+1,0,0,1,1
+1,0,1,0,1
+1,0,1,1,0
+1,1,0,0,1
+1,1,0,1,0
+1,1,1,0,0
+1,1,1,1,0
+|===
+
+=== Problem 2
+
+Write the logic expression for this circuit and simplify.
+
+[format="csv",output="header"]
+|===
+A3,A2,A1,A0,f
+0,0,0,0,0+
+0,0,0,1,0+
+0,0,1,0,0+
+0,0,1,1,1*A3'*A2'*A1*A0+
+0,1,0,0,0+
+0,1,0,1,1*A3'*A2*A1'*A0+
+0,1,1,0,1*A3'*A2*A1*A0'+
+0,1,1,1,0+
+1,0,0,0,0+
+1,0,0,1,1*A3*A2'*A1'*A0+
+1,0,1,0,1*A3*A2'*A1*A0'+
+1,0,1,1,0+
+1,1,0,0,1*A3*A2*A1'*A0'+
+1,1,0,1,0+
+1,1,1,0,0+
+1,1,1,1,0
+|===
+
+Simplified a bit, this becomes:
+
+A3'*A2'*A1*A0 + A3'*A2*A1'*A0 + A3'*A2*A1*A0' + A3*A2'*A1'*A0 + A3*A2'*A1*A0' + A3*A2*A1'*A0'
+
+Apply the Distributive Law on terms with A3'*A2:
+
+A3'*A2'*A1*A0 + A3'*A2*(A1'*A0 + *A1*A0') + A3*A2'*A1'*A0 + A3*A2'*A1*A0' + A3*A2*A1'*A0'
+
+Apply the Distributive Law on terms with A3*A2':
+
+A3'*A2'*A1*A0 + A3'*A2*(A1'*A0 + *A1*A0') + A3*A2'*(A1'*A0 + *A1*A0') + A3*A2*A1'*A0'
+
+Observe instances of exclusive OR (XOR is written &oplus;). X &oplus; Y = X'*Y+X*Y'
+
+A3'*A2'*A1*A0 + A3'*A2*(A1 &oplus; A0) + A3*A2'*(A1 &oplus; A0) + A3*A2*A1'*A0'
+
+Distribute the common A1 &oplus; A0:
+
+A3'*A2'*A1*A0 + (A1 &oplus; A0)*(A3'*A2 + A3*A2') + A3*A2*A1'*A0'
+
+Observe another instance of XOR:
+
+A3'*A2'*A1*A0 + (A1 &oplus; A0)*(A3 &oplus; A2) + A3*A2*A1'*A0'
+
+And so forth...
+
+=== Problem 3
+
+Implement the circuit with a 4-1 MUX by filling in the blanks.
+
+* Least significant select bit is: A2
+* Most significant select bit is: A3
+
+* Input 0 is: A1*A0
+* Input 1 is: A1 &oplus; A0
+* Input 2 is: A1 &oplus; A0
+* Input 3 is: A1'*A0'
+

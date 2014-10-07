@@ -14,8 +14,9 @@
 == Week 4
 
 * http://lawrancej.github.io/COMP278-2014/exams/practice-midterm2.pdf[Lecture 8: Practice midterm II]
-* http://lawrancej.github.io/COMP278-2014/exams/practice-midterm1.pdf[Lecture 7: Practice midterm I]
-** https://github.com/lawrancej/COMP278-2014/blob/master/scribbles/midterm-your-head-asplode2.png[Solutions]
+* http://lawrancej.github.io/COMP278-2014/exams/practice-midterm1.pdf[Lecture 7: Practice midterm I (PDF)] https://github.com/lawrancej/COMP278-2014/blob/master/exams/practice-midterm1.adoc[(Asciidoc)]
+** https://github.com/lawrancej/COMP278-2014/blob/master/scribbles/midterm-your-head-asplode2.png[Solutions (PNG)]
+** https://github.com/lawrancej/COMP278-2014/blob/master/exams/practice-midterm1-solutions.adoc[Solutions (Asciidoc)]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab4.adoc[Lab 4: Boolean algebra, Karnaugh maps, multiplexers]
 
 == Week 3

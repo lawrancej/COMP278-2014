@@ -1,0 +1,57 @@
+= COMP278 Practice Midterm
+
+== Binary Arithmetic
+
+Show place values and carry bits.
+
+=== Problem 1
+
+    10010011
+  + 11010101
+  ----------
+
+=== Problem 2
+
+     100010110
+  -    1110010
+  ------------
+
+== Number representation
+
+Convert numbers to specified bases.
+
+=== Problem 1
+
+Convert Octal 33662575655 to binary, and then to hexadecimal.
+
+=== Problem 2
+
+Convert 170 to binary, and then to octal.
+
+== Combinational logic design
+
+Given a 4-bit binary number A, design a circuit that outputs whether the number of bits set to 1 equals the number of bits set to 0.
+For example, 0010 has three bits set to 0 and one bit set to 1.
+Thus, for 0010, the circuit outputs 0 to indicate the number of 0 bits is not equal to the number of 1 bits.
+
+=== Problem 1
+
+Show the truth table for this circuit.
+Label inputs as A3, A2, A1, A0. Label the output as f.
+
+=== Problem 2
+
+Write the logic expression for this circuit and simplify.
+
+=== Problem 3
+
+Implement the circuit with a 4-1 MUX by filling in the blanks.
+
+* Least significant select bit is: (insert answer here)
+* Most significant select bit is: (insert answer here)
+
+* Input 0 is: (insert answer here)
+* Input 1 is: (insert answer here)
+* Input 2 is: (insert answer here)
+* Input 3 is: (insert answer here)
+
