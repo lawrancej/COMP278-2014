@@ -4,6 +4,7 @@
 
 * Lecture 11: Hand back midterms
 * Lab 6: State machine design
+* No Monday meeting: Columbus Day
 
 == Week 5
 
