@@ -1,0 +1,32 @@
+
+op   Rd  Ra  Rb
+Arithmetic/Logic
+fedcba9876543210
+0000ddddaaaabbbb  ADD  Rd, Ra, Rb    Rd = Ra + Rb
+0001ddddaaaabbbb  SUB  Rd, Ra, Rb    Rd = Ra - Rb
+0010ddddaaaabbbb  MUL  Rd, Ra, Rb    Rd = Ra * Rb
+0011ddddaaaabbbb  DIV  Rd, Ra, Rb    Rd = Ra / Rb
+0100ddddaaaabbbb  AND  Rd, Ra, Rb    Rd = Ra & Rb
+0101ddddaaaabbbb  OR   Rd, Ra, Rb    Rd = Ra | Rb
+0110ddddaaaabbbb  XNOR Rd, Ra, Rb    Rd = !(Ra ^ Rb)
+0111ddddmmmmmmmm  MOV  Rd, mmm       Rd = mmm
+
+Program Control
+1000aaaammmmmmmm  JZE  Ra, mmm       if (Ra == 0) goto mmm
+1001aaaammmmmmmm  JZN  Ra, mmm       if (Ra != 0) goto mmm
+1010aaaammmmmmmm  JZG  Ra, mmm       if (Ra > 0) goto mmm
+1011aaaammmmmmmm  JZL  Ra, mmm       if (Ra < 0) goto mmm
+
+Load (Bus control)
+1100aaaammmmmmmm  LOAD Ra, mmm       Ra = RAM[mmm]
+1101aaaa00000000  LOAD Ra            Ra = RAM[Ra]
+
+Store (TODO)
+1110aaaammmmmmmm  STOR Ra, mmm       RAM[mmm] = Ra
+1111aaaa00000000  STOR Ra            RAM[Ra & 0xff] = Ra
+
+Cycle Clock
+  0     0    Fetch instruction
+  0     1    Fetch instruction
+  1     0    Fetch operand / ALU enable
+  1     1    Program counter increment, Register write
