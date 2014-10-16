@@ -1,9 +1,14 @@
 = COMP278 (Computer Architecture)
 
+== Week 7
+
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 6: Sequential logic]
+
 == Week 6
 
+* Lecture 12: CPU Overview
 * Lecture 11: Hand back midterms
-* Lab 6: State machine design
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 6: Sequential logic]
 * No Monday meeting: Columbus Day
 
 == Week 5
