@@ -1,0 +1,20 @@
+digraph G {
+    rankdir=LR;
+    node [ style = invis ]; 0;
+	node [ style = solid, shape = doublecircle]; "25 cents";
+	node [shape = circle];
+    0 -> "0 cents";
+    "0 cents" -> "5 cents" [ label = "nickel" ];
+    "5 cents" -> "10 cents" [ label = "nickel" ];
+    "10 cents" -> "15 cents" [ label = "nickel" ];
+    "15 cents" -> "20 cents" [ label = "nickel" ];
+    "20 cents" -> "25 cents" [ label = "nickel" ];
+
+    "0 cents" -> "10 cents" [ label = "dime" ];
+    "5 cents" -> "15 cents" [ label = "dime" ];
+    "10 cents" -> "20 cents" [ label = "dime" ];
+    "15 cents" -> "25 cents" [ label = "dime" ];
+
+    "0 cents" -> "25 cents" [ label = "quarter" ];
+    
+}

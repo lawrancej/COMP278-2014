@@ -1,0 +1,14 @@
+digraph G {
+    rankdir=LR;
+    node [ style = invis ]; 0;
+	node [ style = solid, shape = circle];
+    0 -> "0 even, 1 even";
+    "0 even, 1 even" -> "0 odd, 1 even" [ label = 0 ];
+    "0 even, 1 even" -> "0 even, 1 odd" [ label = 1 ];
+    "0 odd, 1 even" -> "0 even, 1 even" [ label = 0 ];
+    "0 odd, 1 even" -> "0 odd, 1 odd" [ label = 1 ];
+    "0 even, 1 odd" -> "0 odd, 1 odd" [ label = 0 ];
+    "0 even, 1 odd" -> "0 even, 1 even" [ label = 1 ];
+    "0 odd, 1 odd" -> "0 even, 1 odd" [ label = 0 ];
+    "0 odd, 1 odd" -> "0 odd, 1 even" [ label = 1 ];
+}

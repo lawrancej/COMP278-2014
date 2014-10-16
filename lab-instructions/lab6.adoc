@@ -1,0 +1,27 @@
+= Lab 6: Sequential logic
+
+In this lab, design sequential logic circuits.
+
+== Even/Odd number of zeroes and ones
+
+image:http://lawrancej.github.io/COMP278-2014/lab-instructions/lab5.svg[Vending machine state transition diagram]
+
+. Answer these questions about the state machine above.
+.. How many bits for state will you need?
+.. How many input bits will you need?
+. Then, map states to bits, and map inputs to bits.
+. Write out a state-transition table.
+. Convert the state-transition table into the appropriate logic expressions.
+. Finally, using either the appropriate gates, or the equivalent MUX configurations, implement this as a circuit in Logisim.
+
+== Vending machine
+
+image:http://lawrancej.github.io/COMP278-2014/lab-instructions/lab5vending.svg[Vending machine state transition diagram]
+
+. Answer these questions about the state machine above.
+.. How many bits for state will you need?
+.. How many input bits will you need?
+. Then, map states to bits, and map inputs to bits.
+. Write out a state-transition table.
+. Convert the state-transition table into the appropriate logic expressions.
+. Finally, using either the appropriate gates, or the equivalent MUX configurations, implement this vending machine as a circuit in Logisim.
