@@ -21,8 +21,11 @@ image:http://lawrancej.github.io/COMP278-2014/lab-instructions/lab5vending.svg[V
 . Answer these questions about the state machine above.
 .. How many bits for state will you need?
 .. How many input bits will you need?
-. Then, map states to bits, and map inputs to bits.
+. Then, map states to bits, and map inputs to bits. 
 . Write out a state-transition table.
+Since 25 cents is the final state, what happens if we get extra currency?
+Or, what happens if we get foreign currency?
+Feel free to transition to a "bogus" state (or states) for these purposes.
 . Convert the state-transition table into the appropriate logic expressions.
 . Finally, using either the appropriate gates, or the equivalent MUX configurations, implement this vending machine as a circuit in Logisim.
 
