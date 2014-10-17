@@ -1,0 +1,60 @@
+= Lecture 9: Latches, flip-flops, registers
+
+At this point, everything we've talked about has concerned *combinational logic.*
+In combinational logic, outputs are functions of inputs.
+In other words, combinational logic has no memory.
+
+Today, we'll talk about *sequential logic.*
+In sequential logic, outputs are functions of inputs and *prior outputs.*
+Put another way, sequential logic is combinational logic + memory.
+
+See the relevant circuit in Logisim to follow along.
+
+== Latches
+
+Latches are a single bit memory device.
+We can construct a latch using two NAND gates or two NOR gates.
+We have two inputs, S' and R', and an output Q.
+These are fed as input to the separate gates, leaving each gate with an empty pin for another input.
+The other input to each gate is the output of the other gate.
+Thus, the gates are cross-connected to each other, so the output is literally a function of inputs and prior outputs.
+
+In a latch, we can describe the behavior using a *characteristic table*, similar to a truth table.
+In a characteristic table, we describe the behavior of the circuit.
+
+(SR)' NAND latch characteristic table
+
+[format="csv",output="header"]
+|===
+S',R',Q
+0,0,Restricted state (here be dragons)
+0,1,Q=1 (Assign Q to 1)
+1,0,Q=0 (Assign Q to 0)
+1,1,No change
+|===
+
+Try it out for yourself.
+
+Latches are so called because they are *level-triggered.*
+Level-triggered means that the level (hi or lo voltage) of the input is what causes the value of Q (the memory) to change.
+
+== Flip-flops
+
+Flip-flops, like latches, are a single bit memory device.
+Unlike latches, flip-flops are *edge-triggered.*
+Edge-triggered means that the transition from one input to another is what causes the value of the memory to change.
+There are two kinds of edge: rising edge (positive edge) and falling edge (negative edge), corresponding to the transition from low to hi and hi to lo, respectively.
+
+Flip-flops are made from latches, but with extra circuitry to make it edge-triggered.
+The circuitry itself takes advantage of solid-state physics to achieve the desired effect.
+Just as the speed of sound varies based on the medium (e.g., air, water), or the speed of light varies based on the medium (e.g., vacuum, fiber-optics, air), the speed at which electrons flow through a circuit varies based on the medium.
+Electrons flow at nearly the speed of light through good conductors such as copper, but flow slightly slower through semiconductors such as silicon (known as a *gate propagation delay* ).
+
+The expression x'+x is always equal to 1, but the circuit implementing this isn't always equal to 1, because of gate propagation delays.
+
+== Registers
+
+A register is a multiple-bit memory device.
+Registers are multiple flip-flops chained together to store things like integers, characters, and such.
+When you declare a variable, like int i = 0, the compiler allocates i to a register and sets the value of that register.
+Most CPUs have at least two registers in them.

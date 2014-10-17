@@ -14,7 +14,7 @@
 == Week 5
 
 * Lecture 10: Sequential logic, finite state machines
-* Lecture 9: Latches, flip-flops, registers
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture9.adoc[Lecture 9: Latches, flip-flops, registers]
 * Lab 5: Midterm!
 
 == Week 4
