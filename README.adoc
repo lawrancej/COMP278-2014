@@ -1,7 +1,15 @@
 = COMP278 (Computer Architecture)
 
+In this course, we learn http://www.simplecpu.com/Binary.html[how computers work] at a low level.
+
+== Week 8
+
+* Lab 7: Assembly/machine programming
+
 == Week 7
 
+* Lab 7: Assembly/machine programming
+* Lecture 13: Assembly and machine instructions
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 6: Sequential logic]
 
 == Week 6
