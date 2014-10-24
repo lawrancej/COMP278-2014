@@ -10,7 +10,7 @@ Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit
 (Yes, I know practically every language has a `max(a,b)` function, I want you to write your own version).
 2. Write out equivalent assembly code for source code.
 One stipulation: the two numbers should be loaded from RAM.
-Hint: the STOR instruction doesn't work. Store the result into a register.
+Hint: the STOR instruction doesn't work. Store the result into a register. To move data from Rs to Rd, ADD Rd, Rs, R0 (R0 is constant 0).
 3. Write out equivalent machine code, and test it in Logisim, using the supplied CPU in `circuits/cpu-16bit.circ`. Save the contents of RAM as lab7max.txt.
 
 == Sum
