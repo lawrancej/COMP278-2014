@@ -3,7 +3,7 @@ Machine code      Assembly           C/C++/Java(Script?) equivalent
 op   Rd  Ra  Rb
 Arithmetic/Logic
 fedcba9876543210
-0000ddddaaaabbbb  ADD  Rd, Ra, Rb    Rd = Ra + Rb; // ADD Rd, Ra, R0
+0000ddddaaaabbbb  ADD  Rd, Ra, Rb    Rd = Ra + Rb; // ADD Rd, Ra, R0 is equivalent to MOV, Rd, Ra
 0001ddddaaaabbbb  SUB  Rd, Ra, Rb    Rd = Ra - Rb;
 0010ddddaaaabbbb  MUL  Rd, Ra, Rb    Rd = Ra * Rb;
 0011ddddaaaabbbb  DIV  Rd, Ra, Rb    Rd = Ra / Rb;
