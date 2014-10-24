@@ -8,7 +8,9 @@ Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit
 
 1. Write out source code for a function that computes the maximum of two numbers.
 (Yes, I know practically every language has a `max(a,b)` function, I want you to write your own version).
-2. Write out equivalent assembly code for source code. One stipulation: the two numbers should be loaded from RAM.
+2. Write out equivalent assembly code for source code.
+One stipulation: the two numbers should be loaded from RAM.
+Hint: the STOR instruction doesn't work. Store the result into a register.
 3. Write out equivalent machine code, and test it in Logisim, using the supplied CPU in `circuits/cpu-16bit.circ`. Save the contents of RAM as lab7max.txt.
 
 == Sum
