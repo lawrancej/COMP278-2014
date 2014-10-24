@@ -9,7 +9,7 @@ Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit
 1. Write out source code for a function that computes the maximum of two numbers.
 (Yes, I know practically every language has a `max(a,b)` function, I want you to write your own version).
 2. Write out equivalent assembly code for source code. One stipulation: the two numbers should be loaded from RAM.
-3. Write out equivalent machine code, and test it in Logisim. Save the contents of RAM as lab7max.txt.
+3. Write out equivalent machine code, and test it in Logisim, using the supplied CPU in `circuits/cpu-16bit.circ`. Save the contents of RAM as lab7max.txt.
 
 == Sum
 
@@ -17,7 +17,7 @@ Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit
 (Yes, I know practically every language has a sum(array) function, I want you to write your own version).
 Write it with the assumption that the length is given separately from the array: `int sum(int length, int[] array);`
 2. Write out equivalent assembly code for source code. One stipulation: the array should be loaded from RAM, and the size of the array should be read first.
-3. Write out equivalent machine code, and test it in Logisim. Save the contents of RAM as lab7sum.txt.
+3. Write out equivalent machine code, and test it in Logisim, using the supplied CPU in `circuits/cpu-16bit.circ`. Save the contents of RAM as lab7sum.txt.
 
 When you are done, save your work and do the following:
 
