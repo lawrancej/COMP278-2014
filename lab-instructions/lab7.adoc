@@ -1,6 +1,8 @@
-= Lab 7: Assembly/Machine language programming.
+= Lab 7: Assembly/Machine language programming
 
 It's like CS1 all over again!
+
+Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit-isa.txt[CPU ISA document for reference].
 
 == Maximum
 
