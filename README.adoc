@@ -4,11 +4,12 @@ In this course, we learn http://www.simplecpu.com/Binary.html[how computers work
 
 == Week 8
 
-* Lab 7: Assembly/machine programming
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 7: Assembly/machine programming]
 
 == Week 7
 
-* Lab 7: Assembly/machine programming
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 7: Assembly/machine programming]
+* Lecture 14: Stupid circuit tricks, and PC control.
 * Lecture 13: Assembly and machine instructions
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 6: Sequential logic]
 

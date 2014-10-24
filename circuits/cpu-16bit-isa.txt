@@ -1,15 +1,16 @@
-
+Reverse column order
+Machine code      Assembly           C/C++/Java(Script?) equivalent
 op   Rd  Ra  Rb
 Arithmetic/Logic
 fedcba9876543210
-0000ddddaaaabbbb  ADD  Rd, Ra, Rb    Rd = Ra + Rb
-0001ddddaaaabbbb  SUB  Rd, Ra, Rb    Rd = Ra - Rb
-0010ddddaaaabbbb  MUL  Rd, Ra, Rb    Rd = Ra * Rb
-0011ddddaaaabbbb  DIV  Rd, Ra, Rb    Rd = Ra / Rb
-0100ddddaaaabbbb  AND  Rd, Ra, Rb    Rd = Ra & Rb
-0101ddddaaaabbbb  OR   Rd, Ra, Rb    Rd = Ra | Rb
-0110ddddaaaabbbb  XNOR Rd, Ra, Rb    Rd = !(Ra ^ Rb)
-0111ddddmmmmmmmm  MOV  Rd, mmm       Rd = mmm
+0000ddddaaaabbbb  ADD  Rd, Ra, Rb    Rd = Ra + Rb;
+0001ddddaaaabbbb  SUB  Rd, Ra, Rb    Rd = Ra - Rb;
+0010ddddaaaabbbb  MUL  Rd, Ra, Rb    Rd = Ra * Rb;
+0011ddddaaaabbbb  DIV  Rd, Ra, Rb    Rd = Ra / Rb;
+0100ddddaaaabbbb  AND  Rd, Ra, Rb    Rd = Ra & Rb;
+0101ddddaaaabbbb  OR   Rd, Ra, Rb    Rd = Ra | Rb;
+0110ddddaaaabbbb  XNOR Rd, Ra, Rb    Rd = !(Ra ^ Rb); // Bitwise equality
+0111ddddmmmmmmmm  MOV  Rd, mmm       Rd = mmm;
 
 Program Control
 1000aaaammmmmmmm  JZE  Ra, mmm       if (Ra == 0) goto mmm
@@ -18,7 +19,7 @@ Program Control
 1011aaaammmmmmmm  JZL  Ra, mmm       if (Ra < 0) goto mmm
 
 Load (Bus control)
-1100aaaammmmmmmm  LOAD Ra, mmm       Ra = RAM[mmm]
+1100aaaammmmmmmm  LOAD Ra, mmm       Ra = RAM[mmm]; //   Ra = *(mmm);
 1101aaaa00000000  LOAD Ra            Ra = RAM[Ra]
 
 Store (TODO)
