@@ -4,12 +4,13 @@ In this course, we learn http://www.simplecpu.com/Binary.html[how computers work
 
 == Week 8
 
+* Lecture 15: http://blog.codinghorror.com/the-infinite-space-between-words/[Memory Organization], http://www.engineerguy.com/videos/video-harddrive.htm[Hard drives], http://www.engineerguy.com/videos/video-lcd.htm[Displays], http://www.engineerguy.com/videos/video-transistor-point-contact.htm[Transistor]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab7.adoc[Lab 7: Assembly/machine programming]
 
 == Week 7
 
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab7.adoc[Lab 7: Assembly/machine programming]
-* Lecture 14: Stupid circuit tricks, and PC control.
+* Lecture 14: Stupid circuit tricks, and PC control
 * Lecture 13: Assembly and machine instructions
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 6: Sequential logic]
 
