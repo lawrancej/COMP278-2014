@@ -20,7 +20,7 @@ Program Control // Note that these are not CMOV
 
 Load (Bus control)
 1100aaaammmmmmmm  LOAD Ra, mmm       Ra = RAM[mmm]; //   Ra = *(mmm);
-1101aaaa00000000  LOAD Ra            Ra = RAM[Ra]
+1101aaaa00000000  LOAD Ra            Ra = RAM[Ra];  //   Ra = *(Ra);
 
 Store (TODO) Here be dragons (it doesn't actually work)
 1110aaaammmmmmmm  STOR Ra, mmm       RAM[mmm] = Ra
