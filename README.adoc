@@ -4,6 +4,11 @@ In this course, we learn http://www.simplecpu.com/Binary.html[how computers work
 
 == Week 9
 
+* http://www.pbs.org/wgbh/americanexperience/films/silicon/[The early history of modern computers]
+* Lecture 18: http://en.wikipedia.org/wiki/IEEE_floating_point[Floating point numbers],
+http://en.wikipedia.org/wiki/Addressing_mode[addressing modes] and instruction formats,
+subroutines (call/return),
+http://en.wikipedia.org/wiki/Flynn's_taxonomy[Flynn's taxonomy]
 * Lecture 17: http://xiph.org/video/vid1.shtml[Digital media primer]
 * Lab 8: Speed dating
 
