@@ -5,6 +5,7 @@ In this course, we learn http://www.simplecpu.com/Binary.html[how computers work
 == Week 9
 
 * http://www.pbs.org/wgbh/americanexperience/films/silicon/[The early history of modern computers]
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab8.adoc[Lab 9: Repository and project setup]
 * Lecture 18: http://en.wikipedia.org/wiki/IEEE_floating_point[Floating point numbers],
 http://en.wikipedia.org/wiki/Addressing_mode[addressing modes] and instruction formats,
 subroutines (call/return),
