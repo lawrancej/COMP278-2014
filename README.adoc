@@ -10,11 +10,11 @@ http://en.wikipedia.org/wiki/Addressing_mode[addressing modes] and instruction f
 subroutines (call/return),
 http://en.wikipedia.org/wiki/Flynn's_taxonomy[Flynn's taxonomy]
 * Lecture 17: http://xiph.org/video/vid1.shtml[Digital media primer]
-* Lab 8: Speed dating
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab8.adoc[Lab 8: Speed dating]
 
 == Week 8
 
-* Lab 8: Speed dating
+* https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab8.adoc[Lab 8: Speed dating]
 * Lecture 16: Lab 6 and 7 hints
 * Lecture 15: http://blog.codinghorror.com/the-infinite-space-between-words/[Memory Organization],
 http://www.engineerguy.com/videos/video-harddrive.htm[Hard drives],
