@@ -1,0 +1,112 @@
+= Lab 8 onward: CPU project
+
+Build a CPU in Logisim and test it with machine code.
+
+The CPU should be programmable, but the data and program do not need to share the RAM.
+That is, the program could be in a separate ROM (read only memory) to simplify things.
+
+== Lab 8
+
+Goal: find a partner or partners.
+
+Ideally, work in pairs.
+Working on this individually is *very* challenging and not recommended.
+Groups of 3 are okay, but larger groups are not recommended.
+
+== Lab 9
+
+=== Part 1
+Goal: Set up your repository.
+
+. Everybody on your team: https://github.com/new[Create a private repository for your CPU]
+. Copy the SSH clone URL from the web site
+. Do this:
+        cd
+        git clone SSH_URL_FROM_GITHUB_BUT_DONT_TYPE_THIS_IN_LITERALLY
+
+. Add my repo as upstream
+        git remote add upstream https://github.com/lawrancej/CPU-2014.git
+        git pull upstream master
+
+. Add `lawrancej` as a collaborator (Repo settings -> collaborators)
+. Add each of your friend(s) as collaborators to your repository.
+. Add your friend(s) SSH urls to git.
+		git remote add myFriendBob ssh_url_to_my_friend_bobs_rep_url_dont_type_this_literally
+
+=== Part 2
+Goal: Decide on the parameters of your CPU.
+
+You may work on an existing CPU, including the one I supplied, but in that case,
+you need to clearly explain what you did to improve it.
+The best way to do this is to commit the existing CPU in your repository first
+and explain that it is your starting point.
+
+Example CPUs include:
+
+* http://minnie.tuhs.org/Programs/UcodeCPU/index.html[UcodeCPU]
+* http://minnie.tuhs.org/CompArch/Tutes/week03.html[Tutes]
+* http://db.grinnell.edu/sigcse/sigcse2013/Program/viewAcceptedProposal.pdf?sessionType=paper&sessionNumber=39[Simple CPU]
+* https://github.com/briandef/bf16[Brainfuck]
+
+Answer these questions, but remember, you will need to write a demonstration program for this CPU.
+The easier it is to implement the CPU, the harder it may be to write demonstration code.
+
+==== Architecture
+
+Is this CPU a Harvard architecture or von Neumann architecture?
+
+NOTE: A Harvard architecture CPU (where program is in ROM and data is in RAM) is
+simpler to implement with few (if any) consequences on machine code complexity.
+
+==== Instructions
+
+Decide on an instruction set.
+
+The CPU *must* support at minimum: conditional jumps, increment, decrement, and loading and storing data to RAM.
+Examples include: Brainfuck, [Nibbler](http://www.bigmessowires.com/nibbler/), 6502, [jvm](http://jasmin.sourceforge.net/)
+
+* How many instructions do you plan to implement?
+* What are they? (Keep in mind, some machines only implement a handful of instructions)
+* What is the maximum number of operands an instruction may have? (Usually, this is no more than 3)
+* How many bits will you use to encode each instruction?
+* Are instructions a fixed width? (It is far easier for it to be fixed width, btw)
+
+==== Registers
+
+How wide are the registers? 8 bits? 16 bits? 32 bits?
+
+How many registers do you plan to implement in the register file?
+
+Machines without a register file exist: they use stacks instead (see http://jasmin.sourceforge.net/about.html[JVM assembly]).
+Obviously, a register is still necessary to keep track of where we are in the stack, but in a "stack machine" the register isn't referenced directly as an operand.
+Instead, push and pop operations implicitly change the stack register.
+
+One register machines also exist: they use a single pointer in an array (see http://en.wikipedia.org/wiki/Brainfuck[Brainfuck]).
+
+Early Intel machines only had 2 identifiable registers, A and B.
+
+Supporting multiple registers arguably simplifies machine coding, but large register files are tricky to implement.
+
+== Lab 10
+Goal: Implement the fetch/execute cycle state machine, instruction decoder, ALU, register file, bus control, program control.
+
+Hint: Split work up into separate circuits and test them independently.
+
+== Lab 11
+Goal: Continue Lab 10. Merge components together.
+
+Informal progress updates from every team is necessary.
+
+== Lab 12
+
+Goal: Prove your CPU works by implementing some simple program for it.
+
+For example:
+
+* Guess the number
+* Fibonacci sequence
+* Hailstone sequence
+
+== Final exam
+
+Present your work
