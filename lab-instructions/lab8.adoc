@@ -21,16 +21,19 @@ Goal: Set up your repository.
 . Everybody on your team: https://github.com/new[Create a private repository for your CPU]
 . Copy the SSH clone URL from the web site
 . Do this:
+
         cd
         git clone SSH_URL_FROM_GITHUB_BUT_DONT_TYPE_THIS_IN_LITERALLY
 
 . Add my repo as upstream
+
         git remote add upstream https://github.com/lawrancej/CPU-2014.git
         git pull upstream master
 
 . Add `lawrancej` as a collaborator (Repo settings -> collaborators)
 . Add each of your friend(s) as collaborators to your repository.
 . Add your friend(s) SSH urls to git.
+
 		git remote add myFriendBob ssh_url_to_my_friend_bobs_rep_url_dont_type_this_literally
 
 === Part 2
