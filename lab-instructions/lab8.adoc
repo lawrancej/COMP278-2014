@@ -27,6 +27,7 @@ Goal: Set up your repository.
 
 . Add my repo as upstream
 
+        cd CPU-2014
         git remote add upstream https://github.com/lawrancej/CPU-2014.git
         git pull upstream master
 
@@ -35,6 +36,7 @@ Goal: Set up your repository.
 . Add your friend(s) SSH urls to git.
 
 		git remote add myFriendBob ssh_url_to_my_friend_bobs_rep_url_dont_type_this_literally
+        git fetch --all
 
 === Part 2
 Goal: Decide on the parameters of your CPU.
