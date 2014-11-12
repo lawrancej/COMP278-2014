@@ -21,9 +21,11 @@ Bus Control:`esmm`:STOR Rs, mm:`RAM[mm] = Rs;`:The store instruction doesn't wor
 Bus Control:`fsxx`:STOR Rs:`RAM[Rs & 0xff] = Rs;`:Ditto
 :===
 
-
-Cycle Clock
-  0     0    Fetch instruction
-  0     1    Fetch instruction
-  1     0    Fetch operand / ALU enable
-  1     1    Program counter increment, Register write
+[format="csv", options="header"]
+|===
+Cycle,CPU State
+00,Fetch instruction
+01,Fetch instruction
+10,Fetch operand / ALU enable
+11,Program counter increment / Register write
+|===
