@@ -1,5 +1,9 @@
 = CPU Instruction Set Architecture
 
+* Opcode is the first nibble (hex digit)
+* Destination or source register is the second nibble (hex digit)
+* The last byte is either two registers or a literal address (`mm`)
+
 [format="csv", options="header"]
 :===
 Component:Hex Machine code:Equivalent Assembly:Equivalent C/C++/Java-esque code:Comments
@@ -16,7 +20,7 @@ Program Control:`9dmm`:JZN Ra, mm:`if (Ra != 0) goto mm;`:
 Program Control:`admm`:JZG Ra, mm:`if (Ra > 0) goto mm;`:
 Program Control:`bdmm`:JZL Ra, mm:`if (Ra < 0) goto mm;`:
 Bus Control:`cdmm`:LOAD Rd, mmm:`Rd = RAM[mmm]; // Rd = *(mmm);`:
-Bus Control:`ddxx`:LOAD Rd:`Rd = RAM[Ra]; // Rd = *(Rd);`:
+Bus Control:`ddxx`:LOAD Rd:`Rd = RAM[Rd]; // Rd = *(Rd);`:
 Bus Control:`esmm`:STOR Rs, mm:`RAM[mm] = Rs;`:The store instruction doesn't work at the moment
 Bus Control:`fsxx`:STOR Rs:`RAM[Rs & 0xff] = Rs;`:Ditto
 :===
