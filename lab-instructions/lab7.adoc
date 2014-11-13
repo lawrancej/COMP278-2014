@@ -2,7 +2,7 @@
 
 It's like CS1 all over again!
 
-Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit-isa.txt[CPU ISA document for reference].
+Use the https://github.com/lawrancej/COMP278-2014/blob/master/circuits/cpu-16bit-isa.adoc[CPU ISA document for reference].
 
 == Maximum
 
