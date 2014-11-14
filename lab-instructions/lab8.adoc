@@ -66,7 +66,7 @@ simpler to implement with few (if any) consequences on machine code complexity.
 
 ==== Instructions
 
-Decide on an instruction set.
+Decide on an http://en.wikipedia.org/wiki/Instruction_set[instruction set].
 
 The CPU *must* support at minimum: conditional jumps, increment, decrement, and loading and storing data to RAM.
 Examples include: Brainfuck, http://www.bigmessowires.com/nibbler/[Nibbler], 6502, http://jasmin.sourceforge.net/[jvm]
