@@ -39,7 +39,7 @@ Goal: Set up your repository.
         git fetch --all
 
 === Part 2
-Goal: Decide on the parameters of your CPU.
+Goal: Decide on the parameters of your http://en.wikipedia.org/wiki/Central_processing_unit[CPU].
 
 You may work on an existing CPU, including the one I supplied, but in that case,
 you need to clearly explain what you did to improve it.
@@ -58,6 +58,7 @@ The easier it is to implement the CPU, the harder it may be to write demonstrati
 
 ==== Architecture
 
+http://en.wikipedia.org/wiki/Comparison_of_instruction_set_architectures[What kind of architecture is it?]
 Is this CPU a Harvard architecture or von Neumann architecture?
 
 NOTE: A Harvard architecture CPU (where program is in ROM and data is in RAM) is
@@ -68,7 +69,7 @@ simpler to implement with few (if any) consequences on machine code complexity.
 Decide on an instruction set.
 
 The CPU *must* support at minimum: conditional jumps, increment, decrement, and loading and storing data to RAM.
-Examples include: Brainfuck, [Nibbler](http://www.bigmessowires.com/nibbler/), 6502, [jvm](http://jasmin.sourceforge.net/)
+Examples include: Brainfuck, http://www.bigmessowires.com/nibbler/[Nibbler], 6502, http://jasmin.sourceforge.net/[jvm]
 
 * How many instructions do you plan to implement?
 * What are they? (Keep in mind, some machines only implement a handful of instructions)
