@@ -93,6 +93,30 @@ Early Intel machines only had 2 identifiable registers, A and B.
 
 Supporting multiple registers arguably simplifies machine coding, but large register files are tricky to implement.
 
+==== Hints
+
+Start with some existing CPU and modify it to work better in some meaningful way.
+
+Example improvements:
+
+Squeeze out instructions::
+* Remove some existing instruction to make room for better ones
+
+Modify instructions::
+* Replace LOAD Rd with LOAD Rd, Ra: Rd = RAM[Ra]
+* Split comparison from jump:
+** CMPEQ Ra Rb (set a 1-bit test flag register to Ra == Rb)
+** CMPLT Ra Rb (set a 1-bit test flag register to Ra < Rb)
+** JMP imm (jump to immediate if test flag is set)
+
+Memory-mapped I/O::
+* Loading from a special memory address reads from the keyboard buffer
+* Storing to a special memory address writes to the tty (screen)
+
+Fix reset::
+* Allow the reset button to also reset the phase of the CPU
+
+
 == Lab 10
 Goal: Implement the fetch/execute cycle state machine, instruction decoder, ALU, register file, bus control, program control.
 
