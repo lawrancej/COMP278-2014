@@ -32,14 +32,14 @@ http://www.engineerguy.com/videos/video-transistor-point-contact.htm[Transistor]
 
 == Week 6
 
-* Lecture 12: CPU Overview
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture12.adoc[ Lecture 12: CPU Overview]
 * Lecture 11: Hand back midterms
 * https://github.com/lawrancej/COMP278-2014/blob/master/lab-instructions/lab6.adoc[Lab 6: Sequential logic]
 * No Monday meeting: Columbus Day
 
 == Week 5
 
-* Lecture 10: Sequential logic, finite state machines
+* https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture10.adoc[Lecture 10: Sequential logic, finite state machines]
 * https://github.com/lawrancej/COMP278-2014/blob/master/lectures/lecture9.adoc[Lecture 9: Latches, flip-flops, registers]
 * Lab 5: Midterm!
 

@@ -1,0 +1,28 @@
+= Lecture 10: Sequential logic, finite state machines
+
+Now that we've seen how memory works, let's see how to make memory work for us.
+
+== Finite state machines
+
+A finite state machine is a theoretical abstraction for sequential logic that we can build in hardware.
+As the name implies, it has a finite number of states, or possible configurations.
+Finite state machines typically (but not always) transition from one state to another based on input.
+Examples include things like counters, switches, or descriptions of processes.
+Finite state machines have a single start state, and zero or many final (or accepting) states.
+
+In a state-transition diagram, we represent states as nodes (circles), and transitions as edges (arrows) labeled by the input.
+An unlabeled arrow from nowhere to a state designates the start state.
+Nodes depicted with two concentric circles are final (or accepting) states.
+
+To convert a state-transition diagram into hardware, first convert the diagram to a table.
+A state-transition table is like a truth table in which inputs are the state and the input, and the output is the new state.
+Map states and inputs to numbers, and represent them in binary.
+That way, to produce all state and input combinations, just count in binary.
+To determine the next state, ask for each state and input, "what state do we visit next?"
+
+Once we have a state-transition table, we can convert it to a logic expression.
+We can, in turn, convert the logic expression to a circuit diagram.
+That circuit is purely combinational logic, with which we already have experience.
+To convert that circuit to a sequential logic circuit, we just need a register.
+The input of the register is the next state, that is, the output of our state-transition circuit.
+The output of the register is input state to our state-transition circuit.

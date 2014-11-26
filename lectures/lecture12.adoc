@@ -1,0 +1,130 @@
+= Lecture 12: CPU Overview
+
+Before examining the Central Processing Unit (CPU), lets talk about instructions.
+
+== Instructions
+
+Instructions encode operations for the CPU to perform.
+They consist of, at minimum, an opcode (a code to indicate what operation to perform).
+We can broadly categorize instructions into 3 categories:
+
+. Arithmetic and Logic operations (e.g., ADD, SUB, MUL, DIV, AND, OR, NOT)
+. Control flow operations (e.g., conditional JUMP or unconditional GOTO)
+. Data movement operations (e.g., LOAD, STORE, MOV)
+
+Just as functions typically have parameters, instructions typically have operands.
+Usually, instructions have between 0 to 3 operands, inclusive.
+Operands come in several formats (addressing modes):
+
+Direct address:: The operand is a number referencing a register (most common).
+Immediate address:: The operand is data literally in the instruction.
+Indirect address:: The operand is a number referencing a register, which in turn references a location in memory.
+
+== CPU categories
+
+CPUs can be broadly categorized along several dimensions:
+
+* Where does the CPU fetch instructions and data?
+
+Harvard architecture:: the CPU loads instructions from a ROM (read-only memory), and data from a separate RAM (random-access memory).
+Von Neumann architecture:: the CPU loads instructions and data from one RAM.
+
+* Where do instructions fetch operands?
+
+Stack machine:: Operands are pushed and popped to/from a stack (e.g., JVM, CLR)
+Register machine:: Operands are from registers (e.g., Intel x86, ARM)
+
+* To what extent do instructions vary?
+
+RISC:: Reduce Instruction Set Computing (instructions are uniform in length with minimal variation in format; e.g., ARM, JVM)
+CISC:: Complex Instruction Set Computing (instructions vary in length and format; e.g., Intel x86)
+
+NOTE: The distinctions among the categories above are blurring as CPUs in one category adopt features of the other category.+
+For example, most modern CPUs use a stack to call functions and return values, but use registers for arithmetic operations.
+
+== CPU components
+
+Like software, CPUs are typically split into several components, which we will examine in turn.
+
+=== Instruction register
+
+The instruction register (IR) holds the current instruction.
+In Harvard architecture CPUs, the instruction comes from a ROM; whereas in Von Neumann CPUs, instructions and data come from RAM.
+
+=== Instruction decoder
+
+The instruction decoder splits the current instruction into its constituent parts (i.e., opcode and operands).
+In RISC CPUs, the decoder is usually trivial; whereas in CISC CPUs, variations in instruction length complicate decoding.
+
+=== Program counter
+
+The program counter (PC) is a register that references the memory address of the current instruction.
+By default, the CPU increments the program counter after executing each instruction.
+However, jump instructions will set the PC directly.
+Unconditional jump instructions change the PC without performing a comparison (hence the name).
+Conditional jump instructions typically set the PC if the comparison is true, and increment if false.
+
+=== CPU Phase
+
+At a high level, a small state machine (typically a counter) determines which "phase" of operation the CPU is in.
+Typically, the phases consist of these operations in sequence:
+
+. Fetch instruction from memory (RAM) and store into the instruction register
+. Decode instruction into constituent parts (opcode, and operand(s))
+. Fetch operand(s) (data)
+. Execute instruction
+. Write result
+. Advance program counter (instruction pointer)
+
+=== Bus control
+
+The bus control is a combinational logic circuit (i.e., stateless circuit) responsible for moving data.
+The bus control fetches instructions, operands, and implements data movement instructions.
+
+=== ALU
+
+The Arithmetic / Logic Unit (ALU) is a combinational logic circuit responsible for arithmetic and logic.
+An ALU typically has two inputs, a and b, along with the operation to perform on it (the opcode).
+The ALU output is the result of applying some operation on the two inputs.
+ALUs are typically arranged such that the opcode is the select line of a large multiplexer.
+The inputs to the multiplexer are the various operations applied to the same two inputs a and b.
+
+=== Register file
+
+Register machines have a register file: a place to access several registers.
+Register files can read two registers and write one register simultaneously.
+To access two registers simultaneously, we have two multiplexers to select the contents of the registers of interest.
+To write to a register, we use a demultiplexer to send a write signal to one of many registers.
+A demux is like a multiplexer in reverse: it has one input and multiple outputs, and the select line chooses which output to send the input to.
+
+=== Stack
+
+Practically all CPUs have a stack to for function call and return.
+However, some CPUs (typically virtual machines such as the JVM or CLR) use a stack instead of a register file for arithmetic and logic operations.
+In such machines the ordering of instructions must be postfix (as opposed to infix).
+In infix, there is an order of operations (parentheses are sometimes necessary), and operations are placed between operands.
+In postfix, there is no order of operations (parentheses are never necessary!), and operations are placed after operands.
+
+For example, the infix expression `1 + 2 * 3` evaluates to 7.
+By order of operations (PEMDAS), we first multiply 2 and 3, then add 1.
+In postfix, the equivalent expression is `2 3 * 1 +`, and it also evaluates to 7.
+Note that the postfix expression corresponds to how we evaluate the infix expression.
+That is, we push 2 then 3 on the stack.
+Multiply pops these values off the stack and places 6 on the stack.
+Then we push 1 on the stack.
+Plus pops 6 and 1 off the stack and pushes 7 on the stack.
+
+As another example, consider the infix expression `-b + sqrt (b*b - 4 * a * c) / 2 * a`.
+By order of operations, we evaluate the numerator first, then the denominator.
+Within the numerator, we evaluate the parenthesized expression first.
+In postfix this expression is:
+`b b * 4 a c * * - sqrt -b + 2 a * /`
+That is, we push b on the stack twice.
+Multiply replaces the stack contents with `b*b`
+We push 4, a, and c on the stack and multiply twice.
+The top of the stack is `4*a*c` and the bottom is `b*b`.
+The subtract operation subtracts the top from the bottom.
+The stack is now `b*b-4*a*c`
+Sqrt replaces the top of the stack with the sqrt of the top of the stack.
+Push negative b and then add, we have the numerator.
+Finally, we multply 2 and a and finally divide.
