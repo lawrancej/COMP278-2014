@@ -39,7 +39,7 @@ Register machine:: Operands are from registers (e.g., Intel x86, ARM)
 RISC:: Reduce Instruction Set Computing (instructions are uniform in length with minimal variation in format; e.g., ARM, JVM)
 CISC:: Complex Instruction Set Computing (instructions vary in length and format; e.g., Intel x86)
 
-NOTE: The distinctions among the categories above are blurring as CPUs in one category adopt features of the other category.+
+NOTE: The distinctions among the categories above are blurring as CPUs in one category adopt features of the other category.
 For example, most modern CPUs use a stack to call functions and return values, but use registers for arithmetic operations.
 
 == CPU components
